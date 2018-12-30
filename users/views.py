@@ -5,27 +5,19 @@ from .forms import UserRegisterForm
 
 class Register(View):
     def get(self, request, *args, **kwargs):
-        register = UserRegisterForm() 
-        return render(request, 'register.html', {'register': register})
+        form = UserRegisterForm() 
+        return render(request, 'register.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
-            register = UserRegisterForm(request.POST)
-            if register.is_valid():
-                register.save()
-                username = register.cleaned_data.get('username')
-                messages.success(request, f'Account created for {username}!')
-                return redirect('main')
+            form = UserRegisterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                messages.success(request, f'Account created for {username}! You are now able to log in')
+                return redirect('login')
         else:
-            register = UserCreationForm()
+            form = UserCreationForm()
         messages.warning(request, f'Error, check your username or password')
-        return render(request, 'register.html', {'register': register})
-
-class Login(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'login.html', {})
-
-class Logout(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'logout.html', {})
+        return render(request, 'register.html', {'form': form})
 
