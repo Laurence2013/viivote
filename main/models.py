@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Category_table(models.Model):
@@ -67,4 +68,17 @@ class Answer_table(models.Model):
 
     class Meta:
         verbose_name_plural = 'Answer'
-    
+
+# Truncate tables
+
+class User_Question_table(models.Model):
+    user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
+    question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
+    date_updated = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return 'User id ', str(self.user_id), ' --> Questions id ', str(self.question_id)
+
+    class Meta:
+        verbose_name_plural = 'User and Question'
+
