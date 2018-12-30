@@ -1,5 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.views.generic import View
+from django.shortcuts import HttpResponse, render
 
-def index(request):
-    return HttpResponse('Hello world')
+class Main(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Hello from main')
