@@ -6,6 +6,7 @@
   <div class='border-top pt-3'>
     {% if user.is_authenticated %}
       <small><strong>Hello</strong> {{ user.username }}</small>
+      <p><a href='{% url 'profile' %}'>View Profile</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
     {% else %} 
       <a href='{% url 'login' %}'>Log In</a>

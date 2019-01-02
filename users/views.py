@@ -21,3 +21,8 @@ class Register(View):
         messages.warning(request, f'Error, check your username or password')
         return render(request, 'register.html', {'form': form})
 
+class Profile(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated == False:
+            return redirect('main')
+        return render(request, 'profile.html', {})

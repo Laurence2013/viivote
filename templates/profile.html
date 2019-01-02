@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class='content-section'>
+    {% if user.username %}
+      <b>Hello </b>{{ user.username }}
+      <a href='{% url 'logout'%}'>Log out</a>
+    {% endif %}
+  </div>
+{% endblock %}
