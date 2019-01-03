@@ -14,6 +14,8 @@ urlpatterns = [
     path('main/login/', auth_views.LoginView.as_view(template_name='login.html'), name = 'login'),
     path('main/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name = 'logout'),
     path('main/profile/', Profile.as_view(), name = 'profile'),
+    path('main/ask_question/', Ask_Question.as_view(), name = 'ask_question'),
+
 ]
 
 if settings.DEBUG:

@@ -4,9 +4,12 @@
 
 {% block content %}
   <div class='content-section'>
-    {% if user.username %}
-      <b>Hello </b>{{ user.username }}
-      <a href='{% url 'logout'%}'>Log out</a>
+    {% if user.is_authenticated %}
+      {% if user.username %}
+        <b>Hello </b>{{ user.username }}
+        <p><a href='{% url 'main' %}'>Back to main</a></p>
+        <a href='{% url 'logout'%}'>Log out</a>
+      {% endif %}
     {% endif %}
   </div>
 {% endblock %}

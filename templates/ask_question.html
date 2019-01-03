@@ -6,9 +6,16 @@
   <div class='border-top pt-3'>
     {% if user.is_authenticated %}
       <small><strong>Hello</strong> {{ user.username }}</small>
-      <p><strong><a href='{% url 'ask_question' %}'>Click here to ask a question</a></strong></p>
       <p><a href='{% url 'profile' %}'>View Profile</a></p>
+      <p><a href='{% url 'main' %}'>Back to main</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
+      <form method='POST' action='{% url 'ask_question' %}'>{% csrf_token %}
+        <fieldset>
+          <legend>Ask a question</legend>
+          {{ form.as_p }}
+        </fieldset>
+        <button type='submit'>Submit</button>
+      </form>
     {% else %} 
       <a href='{% url 'login' %}'>Log In</a>
       <a href='{% url 'register' %}'>Sign Up Now</a>
