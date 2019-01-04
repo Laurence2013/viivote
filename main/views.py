@@ -1,12 +1,43 @@
+from collections import Counter
 from django.contrib.auth.models import User
 from django.views.generic import View
-from django.shortcuts import HttpResponse, render
+from django.shortcuts import HttpResponse, render, redirect
 from main.forms import Ask_A_Question
 from main.models import *
 
 class Main(View):
     def get(self, request, *args, **kwargs):
+        get_q = self.__get_questions()
         return render(request, 'index.html', {})
+    
+    def __get_questions(self):
+        votes_list = []
+        get_qs = Ask_A_Question_table.objects.values_list('id','question')
+        qs = [get_qs[qs] for qs in range(0,len(get_qs))]
+        for ques_vote_q in qs:
+            vote_id = Questions_Votes_table.objects.filter(votes_id_id = ques_vote_q[0]).values_list('votes_id_id')
+            try:
+                votes_list.append(vote_id[0][0])
+            except:
+                continue
+        get_votes = self.__get_votes(votes_list)
+        get_ids = [q_ids[0] for q_ids in get_votes]
+        for get_key in Counter(get_ids):
+            qv_q = Questions_Votes_table.objects.filter(votes_id_id = get_key).values_list('question_id_id')
+            print(qv_q[0][0])
+    
+    def __get_votes(self, votes):
+        vote_list = []
+
+        for vote in votes:
+            get_vote_ids = Votes_table.objects.filter(id = vote).values_list('vote_a_id','vote_b_id','vote_c_id')
+            vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')
+            vote_list.append((vote, vote_a[0]))
+            vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')
+            vote_list.append((vote, vote_b[0]))
+            vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')
+            vote_list.append((vote, vote_c[0]))
+        return vote_list
 
 class Ask_Question(View):
     def get(self, request, *args, **kwargs):
@@ -24,7 +55,7 @@ class Ask_Question(View):
                 #self.__save_question(question, user_id)
                 #self.__save_votes(vote_a, vote_b, vote_c, user_id)
                 #self.__save_question_votes()
-        return HttpResponse('Hello world')
+        return redirect('main')
 
     def __save_question(self, question, user_id):
         Ask_A_Question_table.objects.create(question = question)
