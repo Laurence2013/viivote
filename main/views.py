@@ -1,4 +1,3 @@
-from collections import Counter
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import HttpResponse, render, redirect
@@ -12,32 +11,36 @@ class Main(View):
     
     def __get_questions(self):
         votes_list = []
-        get_qs = Ask_A_Question_table.objects.values_list('id','question')
+        get_qs = Ask_A_Question_table.objects.values_list('id')
         qs = [get_qs[qs] for qs in range(0,len(get_qs))]
         for ques_vote_q in qs:
             vote_id = Questions_Votes_table.objects.filter(votes_id_id = ques_vote_q[0]).values_list('votes_id_id')
             try:
                 votes_list.append(vote_id[0][0])
             except:
-                continue
+                pass
         get_votes = self.__get_votes(votes_list)
-        get_ids = [q_ids[0] for q_ids in get_votes]
-        for get_key in Counter(get_ids):
-            qv_q = Questions_Votes_table.objects.filter(votes_id_id = get_key).values_list('question_id_id')
-            print(qv_q[0][0])
-    
-    def __get_votes(self, votes):
-        vote_list = []
+        print(get_votes)
 
-        for vote in votes:
-            get_vote_ids = Votes_table.objects.filter(id = vote).values_list('vote_a_id','vote_b_id','vote_c_id')
-            vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')
-            vote_list.append((vote, vote_a[0]))
-            vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')
-            vote_list.append((vote, vote_b[0]))
-            vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')
-            vote_list.append((vote, vote_c[0]))
-        return vote_list
+    def __get_votes(self, votes):
+        context_list = []
+        
+        for qv in votes:
+            get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
+            get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('question')
+            for v in range(0,len(get_q)):
+                get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
+                vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0][1]
+                vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0][1]
+                vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0][1]
+                context = {
+                    'question': get_q[0][0],
+                    'vote_a': vote_a,
+                    'vote_b': vote_b,
+                    'vote_c': vote_c,
+                }
+                context_list.append(context)
+        return context_list
 
 class Ask_Question(View):
     def get(self, request, *args, **kwargs):
@@ -80,4 +83,5 @@ class Ask_Question(View):
         get_vote = Votes_table.objects.latest('date_updated')
 
         Questions_Votes_table.objects.create(question_id = get_question, votes_id = get_vote)
+
 
