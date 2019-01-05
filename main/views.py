@@ -22,15 +22,16 @@ class Main(View):
     __all_votes_json = 'all_votes'
 
     def get(self, request, *args, **kwargs):
+        user_id = request.user.id
         check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
-        get_q = self.__get_questions()
+        get_q = self.__get_questions(user_id)
 
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(get_q, self.__all_votes_json)
 
         return render(request, 'index.html', {})
     
-    def __get_questions(self):
+    def __get_questions(self, user_id):
         votes_list = []
         get_qs = Ask_A_Question_table.objects.values_list('id')
         qs = [get_qs[qs] for qs in range(0,len(get_qs))]
@@ -40,9 +41,9 @@ class Main(View):
                 votes_list.append(vote_id[0][0])
             except:
                 pass
-        return self.__get_votes(votes_list)
+        return self.__get_votes(votes_list, user_id)
 
-    def __get_votes(self, votes):
+    def __get_votes(self, votes, user_id):
         context_list = []
         
         for qv in votes:
@@ -54,6 +55,8 @@ class Main(View):
                 vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0][1]
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0][1]
                 context = {
+                    'user_id': user_id,
+                    'questions_vote': get_qs,
                     'question': get_q[0][0],
                     'vote_a': vote_a,
                     'vote_b': vote_b,
