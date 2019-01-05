@@ -3,32 +3,68 @@
         "user_id": 3,
         "questions_vote": 4,
         "question": "hello 3",
-        "vote_a": "a1",
-        "vote_b": "b1",
-        "vote_c": "c1"
+        "vote_a": {
+            "id": 1,
+            "vote": "a1"
+        },
+        "vote_b": {
+            "id": 1,
+            "vote": "b1"
+        },
+        "vote_c": {
+            "id": 1,
+            "vote": "c1"
+        }
     },
     {
         "user_id": 3,
         "questions_vote": 5,
         "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
-        "vote_a": "In vulputate convallis libero ac imperdiet.",
-        "vote_b": "Maecenas quis interdum nunc, vel aliquam lacus.",
-        "vote_c": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae."
+        "vote_a": {
+            "id": 2,
+            "vote": "In vulputate convallis libero ac imperdiet."
+        },
+        "vote_b": {
+            "id": 2,
+            "vote": "Maecenas quis interdum nunc, vel aliquam lacus."
+        },
+        "vote_c": {
+            "id": 2,
+            "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae."
+        }
     },
     {
         "user_id": 3,
         "questions_vote": 6,
         "question": "Hello Wakanda",
-        "vote_a": "Wakanda a",
-        "vote_b": "Wakanda b",
-        "vote_c": "Wakanda c"
+        "vote_a": {
+            "id": 3,
+            "vote": "Wakanda a"
+        },
+        "vote_b": {
+            "id": 3,
+            "vote": "Wakanda b"
+        },
+        "vote_c": {
+            "id": 3,
+            "vote": "Wakanda c"
+        }
     },
     {
         "user_id": 3,
         "questions_vote": 7,
         "question": "Hello Logan",
-        "vote_a": "Logan A",
-        "vote_b": "Logan B",
-        "vote_c": "Logan C"
+        "vote_a": {
+            "id": 4,
+            "vote": "Logan A"
+        },
+        "vote_b": {
+            "id": 4,
+            "vote": "Logan B"
+        },
+        "vote_c": {
+            "id": 4,
+            "vote": "Logan C"
+        }
     }
 ]

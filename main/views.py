@@ -51,16 +51,19 @@ class Main(View):
             get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('question')
             for v in range(0,len(get_q)):
                 get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
-                vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0][1]
-                vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0][1]
-                vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0][1]
+                vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0]
+                con_vote_a = {'id': vote_a[0], 'vote': vote_a[1],}
+                vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0]
+                con_vote_b = {'id': vote_b[0], 'vote': vote_b[1],}
+                vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
+                con_vote_c = {'id': vote_c[0], 'vote': vote_c[1],}
                 context = {
                     'user_id': user_id,
                     'questions_vote': get_qs,
                     'question': get_q[0][0],
-                    'vote_a': vote_a,
-                    'vote_b': vote_b,
-                    'vote_c': vote_c,
+                    'vote_a': con_vote_a,
+                    'vote_b': con_vote_b,
+                    'vote_c': con_vote_c,
                 }
                 context_list.append(context)
         return context_list

@@ -6,11 +6,11 @@
       let html = '';
       html += '<ul>';
       Object.values(results).forEach(function(qs){
-        console.log(qs);
-        html += '<li><b>Question: </b>'+ qs.question +'</li>';
-        html += '<li><b>Vote A: </b>'+ qs.vote_a +'</li>';
-        html += '<li><b>Vote B: </b>'+ qs.vote_b +'</li>';
-        html += '<li><b>Vote C: </b>'+ qs.vote_c +'</li>';
+        html += '<input type="hidden" name="'+ qs.user_id +'">';
+        html += '<li name="'+ qs.questions_vote +'"><b>Question: </b>'+ qs.question +'</li>';
+        html += '<li name="'+ qs.vote_a.id +'"><b>Vote A: </b>'+ qs.vote_a.vote +'</li>';
+        html += '<li name="'+ qs.vote_b.id +'"><b>Vote B: </b>'+ qs.vote_b.vote +'</li>';
+        html += '<li name="'+ qs.vote_c.id +'"><b>Vote C: </b>'+ qs.vote_c.vote +'</li>';
       });
       html += '</ul>';
       document.getElementById('votes').innerHTML = html;
