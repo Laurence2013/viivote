@@ -9,9 +9,16 @@
       <p><strong><a href='{% url 'ask_question' %}'>Click here to ask a question</a></strong></p>
       <p><a href='{% url 'profile' %}'>View Profile</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
+      <hr>
+      <fieldset>
+        <legend>View all votes</legend>
+        <section id='all_votes'></section>
+      </fieldset>
     {% else %} 
       <a href='{% url 'login' %}'>Log In</a>
       <a href='{% url 'register' %}'>Sign Up Now</a>
     {% endif %}
   </div>
+  <script src="{% static 'js/all_qs.js' %}"></script>
 {% endblock %}
+

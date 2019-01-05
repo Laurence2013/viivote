@@ -16,6 +16,8 @@ urlpatterns = [
     path('main/profile/', Profile.as_view(), name = 'profile'),
     path('main/ask_question/', Ask_Question.as_view(), name = 'ask_question'),
 
+    path('main/all_votes/', All_Votes.as_view(), name = 'all_votes'),
+
 ]
 
 if settings.DEBUG:

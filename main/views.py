@@ -1,12 +1,33 @@
+import os
+from django.conf import settings
+from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import HttpResponse, render, redirect
 from main.forms import Ask_A_Question
 from main.models import *
+from main.save_data_to_json import Save_Data_To_Json
+
+class All_Votes(View):
+    __get_json = Save_Data_To_Json()
+    __all_votes_json = 'all_votes'
+
+    def get(self, request, *args, **kwargs):
+        get_json = self.__get_json.get_json_file(self.__all_votes_json)
+        return JsonResponse(get_json, safe = False)
 
 class Main(View):
+    __get_json = Save_Data_To_Json()
+    __base_dir = settings.BASE_DIR
+    __all_votes_json = 'all_votes'
+
     def get(self, request, *args, **kwargs):
+        check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
         get_q = self.__get_questions()
+
+        if check_json != 0 or check_json == 0:
+            self.__get_json.save_json(get_q, self.__all_votes_json)
+
         return render(request, 'index.html', {})
     
     def __get_questions(self):
@@ -19,8 +40,7 @@ class Main(View):
                 votes_list.append(vote_id[0][0])
             except:
                 pass
-        get_votes = self.__get_votes(votes_list)
-        print(get_votes)
+        return self.__get_votes(votes_list)
 
     def __get_votes(self, votes):
         context_list = []
