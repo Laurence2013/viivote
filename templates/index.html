@@ -10,10 +10,12 @@
       <p><a href='{% url 'profile' %}'>View Profile</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
       <hr>
-      <fieldset>
-        <legend>View all votes</legend>
-        <section id='votes'></section>
-      </fieldset>
+      <form method="POST">{% csrf_token %}
+        <fieldset>
+          <legend>View all votes</legend>
+          <section id='votes'></section>
+        </fieldset>
+      </form>
     {% else %} 
       <a href='{% url 'login' %}'>Log In</a>
       <a href='{% url 'register' %}'>Sign Up Now</a>

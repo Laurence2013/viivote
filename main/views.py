@@ -30,6 +30,21 @@ class Main(View):
             self.__get_json.save_json(get_q, self.__all_votes_json)
 
         return render(request, 'index.html', {})
+
+    def post(self, request, *args, **kwargs):
+        votes = request.POST
+        for k_vote, v_vote in votes.items():
+            if k_vote == 'csrfmiddlewaretoken':
+                continue
+            ask_question_id = int(k_vote)
+            vote_split = v_vote.split('_')
+            vote_type = vote_split[1]
+            vote_id = int(vote_split[0])
+            print('ask_question_id ', ask_question_id)
+            print('vote_id ', vote_id)
+            print('vote type ', vote_type)
+
+        return HttpResponse('Hello World')
     
     def __get_questions(self, user_id):
         votes_list = []
@@ -52,14 +67,13 @@ class Main(View):
             for v in range(0,len(get_q)):
                 get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
                 vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0]
-                con_vote_a = {'id': vote_a[0], 'vote': vote_a[1],}
+                con_vote_a = {'id': str(vote_a[0]) + '_a', 'vote': vote_a[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0]
-                con_vote_b = {'id': vote_b[0], 'vote': vote_b[1],}
+                con_vote_b = {'id': str(vote_b[0]) + '_b', 'vote': vote_b[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
-                con_vote_c = {'id': vote_c[0], 'vote': vote_c[1],}
+                con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 context = {
                     'user_id': user_id,
-                    'questions_vote': get_qs,
                     'question': get_q[0][0],
                     'vote_a': con_vote_a,
                     'vote_b': con_vote_b,
