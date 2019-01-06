@@ -1,4 +1,5 @@
 import os
+from django.db.models import F
 from django.conf import settings
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -28,10 +29,10 @@ class Main(View):
 
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(get_q, self.__all_votes_json)
-
         return render(request, 'index.html', {})
 
     def post(self, request, *args, **kwargs):
+        user_id = request.user.id
         votes = request.POST
         for k_vote, v_vote in votes.items():
             if k_vote == 'csrfmiddlewaretoken':
@@ -40,11 +41,21 @@ class Main(View):
             vote_split = v_vote.split('_')
             vote_type = vote_split[1]
             vote_id = int(vote_split[0])
-            print('ask_question_id ', ask_question_id)
-            print('vote_id ', vote_id)
-            print('vote type ', vote_type)
-
+        if vote_type == 'a':
+            User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
+            self.__save_user_votes(Vote_A_table, vote_id)
+        if vote_type == 'b':
+            User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
+            self.__save_user_votes(Vote_B_table, vote_id)
+        if vote_type == 'c':
+            User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
+            self.__save_user_votes(Vote_C_table, vote_id)
         return HttpResponse('Hello World')
+
+    def __save_user_votes(self, vote, vote_id):
+        vote = vote.objects.get(id = vote_id)
+        vote.total_votes = F('total_votes') + 1
+        vote.save()        
     
     def __get_questions(self, user_id):
         votes_list = []
@@ -123,5 +134,3 @@ class Ask_Question(View):
         get_vote = Votes_table.objects.latest('date_updated')
 
         Questions_Votes_table.objects.create(question_id = get_question, votes_id = get_vote)
-
-
