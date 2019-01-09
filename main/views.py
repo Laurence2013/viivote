@@ -77,6 +77,13 @@ class Main(View):
 
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(get_q, self.__all_votes_json)
+
+        check_if_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('id','question_id_id')
+        context = {'user_id': user_id}
+        for voted in check_if_voted:
+            context.update({'id': check_if_voted[0][0], 'question_id': check_if_voted[0][1]})
+            print(context)
+
         return render(request, 'index.html', {})
 
     def post(self, request, *args, **kwargs):
