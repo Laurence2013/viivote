@@ -19,6 +19,8 @@ urlpatterns = [
     path('main/all_votes/', All_Votes.as_view(), name = 'all_votes'),
     path('main/view_all_my_votes/', View_All_My_Votes.as_view(), name = 'view_all_my_votes'),
 
+    path('main/view_all_my_votes/get_all_user_qs_vs', Get_All_My_Votes.as_view(), name = 'get_all_user_qs_vs'),
+
 ]
 
 if settings.DEBUG:

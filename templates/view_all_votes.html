@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class='border-top pt-3'>
+    {% if user.is_authenticated %}
+      <small><strong>Hello</strong> {{ user.username }}</small>
+      <p><strong><a href='{% url 'ask_question' %}'>Click here to ask a question</a></strong></p>
+      <p><a href='{% url 'profile' %}'>View Profile</a></p>
+      <p><a href='{% url 'main' %}'>Back to main</a></p>
+      <a href='{% url 'logout' %}'>Log out</a>
+      <hr>
+      <h2>Viewing all my votes</h2>
+      <section id="all_user_qs_vs"></section>
+    {% else %} 
+      <a href='{% url 'login' %}'>Log In</a>
+      <a href='{% url 'register' %}'>Sign Up Now</a>
+    {% endif %}
+  </div>
+  <script src="{% static 'js/get_user_qs_vs.js' %}"></script>
+{% endblock %}
+

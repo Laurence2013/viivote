@@ -19,22 +19,50 @@ class All_Votes(View):
         get_json = self.__get_json.get_json_file(self.__all_votes_json)
         return JsonResponse(get_json, safe = False)
 
-class View_All_My_Votes(View):
+class Get_All_My_Votes(View):
+    __get_json = Save_Data_To_Json()
+    __all_user_votes_json = 'all_user_votes'
 
     def get(self, request, *args, **kwargs):
+        get_json = self.__get_json.get_json_file(self.__all_user_votes_json)
+        return JsonResponse(get_json, safe = False)
+
+class View_All_My_Votes(View):
+    __get_json = Save_Data_To_Json()
+    __base_dir = settings.BASE_DIR
+    __all_user_votes_json = 'all_user_votes'
+
+    def get(self, request, *args, **kwargs):
+        check_json = self.__base_dir + '/static/json/'+ self.__all_user_votes_json +'.json'
+        all_qs_vs = []
+
         user_id = request.user.id
         user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id')
-        #user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id')
-        #user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id')
-        from_votes_table = View_All_My_Votess(user_vote_a)
-        get_votes_table_ids = from_votes_table.get_from_votes_type('a')
-        get_qs_with_its_vote = from_votes_table.get_from_questions_votes(get_votes_table_ids)
-        tests = from_votes_table.get_qs_with_its_vote(get_qs_with_its_vote,'a')
-        for test in tests:
-            print(test)
+        user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id')
+        user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id')
+        
+        from_votes_table_a = View_All_My_Votess(user_vote_a)
+        get_votes_a_table_ids = from_votes_table_a.get_from_votes_type('a')
+        get_qs_with_its_vote_a = from_votes_table_a.get_from_questions_votes(get_votes_a_table_ids)
+        qs_vs_a = from_votes_table_a.get_qs_with_its_vote(get_qs_with_its_vote_a,'a',Vote_A_table,'vote_a')
 
-        return HttpResponse('Hello world')
+        from_votes_table_b = View_All_My_Votess(user_vote_b)
+        get_votes_b_table_ids = from_votes_table_b.get_from_votes_type('b')
+        get_qs_with_its_vote_b = from_votes_table_b.get_from_questions_votes(get_votes_b_table_ids)
+        qs_vs_b = from_votes_table_b.get_qs_with_its_vote(get_qs_with_its_vote_b,'b',Vote_B_table,'vote_b')
+        
+        from_votes_table_c = View_All_My_Votess(user_vote_c)
+        get_votes_c_table_ids = from_votes_table_c.get_from_votes_type('c')
+        get_qs_with_its_vote_c = from_votes_table_c.get_from_questions_votes(get_votes_c_table_ids)
+        qs_vs_c = from_votes_table_c.get_qs_with_its_vote(get_qs_with_its_vote_c,'c',Vote_C_table,'vote_c')
 
+        all_qs_vs.append(qs_vs_a)
+        all_qs_vs.append(qs_vs_b)
+        all_qs_vs.append(qs_vs_c)
+        
+        if check_json != 0 or check_json == 0:
+            self.__get_json.save_json(all_qs_vs, self.__all_user_votes_json)
+        return render(request, 'view_all_votes.html', {})
 
 class Main(View):
     __get_json = Save_Data_To_Json()
