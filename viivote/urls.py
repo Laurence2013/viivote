@@ -17,6 +17,7 @@ urlpatterns = [
     path('main/ask_question/', Ask_Question.as_view(), name = 'ask_question'),
 
     path('main/all_votes/', All_Votes.as_view(), name = 'all_votes'),
+    path('main/view_all_my_votes/', View_All_My_Votes.as_view(), name = 'view_all_my_votes'),
 
 ]
 

@@ -8,6 +8,8 @@ from django.shortcuts import HttpResponse, render, redirect
 from main.forms import Ask_A_Question
 from main.models import *
 from main.save_data_to_json import Save_Data_To_Json
+from main.view_all_my_votess import View_All_My_Votess
+from django.contrib import messages
 
 class All_Votes(View):
     __get_json = Save_Data_To_Json()
@@ -16,6 +18,23 @@ class All_Votes(View):
     def get(self, request, *args, **kwargs):
         get_json = self.__get_json.get_json_file(self.__all_votes_json)
         return JsonResponse(get_json, safe = False)
+
+class View_All_My_Votes(View):
+
+    def get(self, request, *args, **kwargs):
+        user_id = request.user.id
+        user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id')
+        #user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id')
+        #user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id')
+        from_votes_table = View_All_My_Votess(user_vote_a)
+        get_votes_table_ids = from_votes_table.get_from_votes_type('a')
+        get_qs_with_its_vote = from_votes_table.get_from_questions_votes(get_votes_table_ids)
+        tests = from_votes_table.get_qs_with_its_vote(get_qs_with_its_vote,'a')
+        for test in tests:
+            print(test)
+
+        return HttpResponse('Hello world')
+
 
 class Main(View):
     __get_json = Save_Data_To_Json()
@@ -32,6 +51,7 @@ class Main(View):
         return render(request, 'index.html', {})
 
     def post(self, request, *args, **kwargs):
+        username = request.user
         user_id = request.user.id
         votes = request.POST
         for k_vote, v_vote in votes.items():
@@ -50,7 +70,8 @@ class Main(View):
         if vote_type == 'c':
             User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
             self.__save_user_votes(Vote_C_table, vote_id)
-        return HttpResponse('Hello World')
+        messages.success(request, f'You have successfully voted {username}')
+        return redirect('main')
 
     def __save_user_votes(self, vote, vote_id):
         vote = vote.objects.get(id = vote_id)

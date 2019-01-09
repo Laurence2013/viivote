@@ -19,17 +19,6 @@
         html += '</ul>';
       });
       document.getElementById('votes').innerHTML = html;
-
-      function get_votes(){
-        //let radios = document.forms['form_votes'].elements['vote_rs'];
-        let radios = document.getElementsByName('vote_rs');
-        for(radio in radios){
-          radios[radio].onclick = function(){
-            console.log(this.id);
-          }
-        }
-      }
-      //get_votes();
     }
   }
   http.open('GET', 'all_votes', true);
