@@ -9,6 +9,7 @@ from main.forms import Ask_A_Question
 from main.models import *
 from main.save_data_to_json import Save_Data_To_Json
 from main.view_all_my_votess import View_All_My_Votess
+from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
 class All_Votes(View):
@@ -89,15 +90,20 @@ class Main(View):
             vote_split = v_vote.split('_')
             vote_type = vote_split[1]
             vote_id = int(vote_split[0])
-        if vote_type == 'a':
-            User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
-            self.__save_user_votes(Vote_A_table, vote_id)
-        if vote_type == 'b':
-            User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
-            self.__save_user_votes(Vote_B_table, vote_id)
-        if vote_type == 'c':
-            User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
-            self.__save_user_votes(Vote_C_table, vote_id)
+
+        #if vote_type == 'a':
+        #    User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
+        #    self.__save_user_votes(Vote_A_table, vote_id)
+        #if vote_type == 'b':
+        #    User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
+        #    self.__save_user_votes(Vote_B_table, vote_id)
+        #if vote_type == 'c':
+        #    User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
+        #    self.__save_user_votes(Vote_C_table, vote_id)
+
+        has_voted = Has_Voted_Per_Question(vote_type, vote_id)
+        has_voted.get_qs_id(user_id)
+
         messages.success(request, f'You have successfully voted {username}')
         return redirect('main')
 
@@ -123,7 +129,7 @@ class Main(View):
         
         for qv in votes:
             get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
-            get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('question')
+            get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question')
             for v in range(0,len(get_q)):
                 get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
                 vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0]
@@ -134,7 +140,8 @@ class Main(View):
                 con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 context = {
                     'user_id': user_id,
-                    'question': get_q[0][0],
+                    'question_id': get_q[0][0],
+                    'question': get_q[0][1],
                     'vote_a': con_vote_a,
                     'vote_b': con_vote_b,
                     'vote_c': con_vote_c,

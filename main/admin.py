@@ -14,4 +14,4 @@ admin.site.register(User_Questions_Votes_Answers_table)
 admin.site.register(User_Vote_A_table)
 admin.site.register(User_Vote_B_table)
 admin.site.register(User_Vote_C_table)
-
+admin.site.register(Has_Voted_Per_Question_table)

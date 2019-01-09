@@ -71,6 +71,15 @@ class Answer_table(models.Model):
 
 # Surrogate tables
 
+class Has_Voted_Per_Question_table(models.Model):
+    user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
+    question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
+    date_updated = models.DateTimeField(auto_now_add = True)
+    
+    class Meta:
+        verbose_name_plural = 'Has the user answered this questions via voting?'
+
+
 class User_Questions_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
