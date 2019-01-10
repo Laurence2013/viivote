@@ -15,15 +15,9 @@ from django.contrib import messages
 class All_Votes(View):
     __get_json = Save_Data_To_Json()
     __all_votes_json = 'all_votes'
-    __has_voted = 'has_voted_per_question'
 
     def get(self, request, *args, **kwargs):
-        get_json = []
-        all_votes = self.__get_json.get_json_file(self.__all_votes_json)
-        has_voted =  self.__get_json.get_json_file(self.__has_voted)
-        get_json.append(has_voted)
-        get_json.append(all_votes)
-
+        get_json = self.__get_json.get_json_file(self.__all_votes_json)
         return JsonResponse(get_json, safe = False)
 
 class Get_All_My_Votes(View):
@@ -78,26 +72,14 @@ class Main(View):
     __has_voted_per_qs = 'has_voted_per_question'
 
     def get(self, request, *args, **kwargs):
-        has_voted_list = []
         user_id = request.user.id
-        check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
-        has_voted_per_qs = self.__base_dir + '/static/json/'+ self.__has_voted_per_qs +'.json'
-        get_q = self.__get_questions(user_id)
-        has_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('id','question_id_id')
-        for vote in has_voted:
-            context = {
-                'id': vote[0],
-                'question_id': vote[1],
-            }
-            has_voted_list.append(context)
-
-        if check_json != 0 or check_json == 0:
-            self.__get_json.save_json(get_q, self.__all_votes_json)
-
-        if has_voted_per_qs != 0 or has_voted_per_qs == 0:
-            self.__get_json.save_json(has_voted_list, self.__has_voted_per_qs)
-
-        return render(request, 'index.html', {})
+        if user_id:
+            check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
+            get_q = self.__get_questions(user_id)
+            if check_json != 0 or check_json == 0:
+                self.__get_json.save_json(get_q, self.__all_votes_json)
+            return render(request, 'index.html', {})
+        return redirect('login')
 
     def post(self, request, *args, **kwargs):
         username = request.user
@@ -145,8 +127,8 @@ class Main(View):
         return self.__get_votes(votes_list, user_id)
 
     def __get_votes(self, votes, user_id):
-        context_list = []
-        
+        context_list = [] 
+        has_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id') 
         for qv in votes:
             get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
             get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question')
@@ -158,15 +140,41 @@ class Main(View):
                 con_vote_b = {'id': str(vote_b[0]) + '_b', 'vote': vote_b[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
                 con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
+                
+                for voted in has_voted:
+                    if voted[0] == get_q[0][0]:
+                        context = {
+                            'user_id': user_id,
+                            'has_voted': True,
+                            'question_id': get_q[0][0],
+                            'question': get_q[0][1],
+                            'vote_a': con_vote_a,
+                            'vote_b': con_vote_b,
+                            'vote_c': con_vote_c,
+                        }        
+                        break
+
+                    if voted[0] != get_q[0][0]:
+                        context = {
+                            'user_id': user_id,
+                            'has_voted': False,
+                            'question_id': get_q[0][0],
+                            'question': get_q[0][1],
+                            'vote_a': con_vote_a,
+                            'vote_b': con_vote_b,
+                            'vote_c': con_vote_c,
+                        }
+            if not has_voted:
                 context = {
                     'user_id': user_id,
+                    'has_voted': False,
                     'question_id': get_q[0][0],
                     'question': get_q[0][1],
                     'vote_a': con_vote_a,
                     'vote_b': con_vote_b,
                     'vote_c': con_vote_c,
                 }
-                context_list.append(context)
+            context_list.append(context)
         return context_list
 
 class Ask_Question(View):
