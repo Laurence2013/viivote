@@ -15,9 +15,15 @@ from django.contrib import messages
 class All_Votes(View):
     __get_json = Save_Data_To_Json()
     __all_votes_json = 'all_votes'
+    __has_voted = 'has_voted_per_question'
 
     def get(self, request, *args, **kwargs):
-        get_json = self.__get_json.get_json_file(self.__all_votes_json)
+        get_json = []
+        all_votes = self.__get_json.get_json_file(self.__all_votes_json)
+        has_voted =  self.__get_json.get_json_file(self.__has_voted)
+        get_json.append(has_voted)
+        get_json.append(all_votes)
+
         return JsonResponse(get_json, safe = False)
 
 class Get_All_My_Votes(View):
@@ -69,20 +75,27 @@ class Main(View):
     __get_json = Save_Data_To_Json()
     __base_dir = settings.BASE_DIR
     __all_votes_json = 'all_votes'
+    __has_voted_per_qs = 'has_voted_per_question'
 
     def get(self, request, *args, **kwargs):
+        has_voted_list = []
         user_id = request.user.id
         check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
+        has_voted_per_qs = self.__base_dir + '/static/json/'+ self.__has_voted_per_qs +'.json'
         get_q = self.__get_questions(user_id)
+        has_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('id','question_id_id')
+        for vote in has_voted:
+            context = {
+                'id': vote[0],
+                'question_id': vote[1],
+            }
+            has_voted_list.append(context)
 
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(get_q, self.__all_votes_json)
 
-        check_if_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('id','question_id_id')
-        context = {'user_id': user_id}
-        for voted in check_if_voted:
-            context.update({'id': check_if_voted[0][0], 'question_id': check_if_voted[0][1]})
-            print(context)
+        if has_voted_per_qs != 0 or has_voted_per_qs == 0:
+            self.__get_json.save_json(has_voted_list, self.__has_voted_per_qs)
 
         return render(request, 'index.html', {})
 
