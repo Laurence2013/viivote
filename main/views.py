@@ -147,39 +147,26 @@ class Main(View):
                 
                 for voted in has_voted:
                     if voted[0] == get_q[0][0]:
-                        context = {
-                            'user_id': user_id,
-                            'has_voted': True,
-                            'question_id': get_q[0][0],
-                            'question': get_q[0][1],
-                            'vote_a': con_vote_a,
-                            'vote_b': con_vote_b,
-                            'vote_c': con_vote_c,
-                        }        
+                        context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True) 
                         break
-
                     if voted[0] != get_q[0][0]:
-                        context = {
-                            'user_id': user_id,
-                            'has_voted': False,
-                            'question_id': get_q[0][0],
-                            'question': get_q[0][1],
-                            'vote_a': con_vote_a,
-                            'vote_b': con_vote_b,
-                            'vote_c': con_vote_c,
-                        }
+                        context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False) 
             if not has_voted:
-                context = {
-                    'user_id': user_id,
-                    'has_voted': False,
-                    'question_id': get_q[0][0],
-                    'question': get_q[0][1],
-                    'vote_a': con_vote_a,
-                    'vote_b': con_vote_b,
-                    'vote_c': con_vote_c,
-                }
+                context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False) 
             context_list.append(context)
         return context_list
+
+    def __get_context(self, has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F):
+        context = {
+            'user_id': user_id,
+            'has_voted': T_F,
+            'question_id': get_q[0][0],
+            'question': get_q[0][1],
+            'vote_a': con_vote_a,
+            'vote_b': con_vote_b,
+            'vote_c': con_vote_c,
+        }        
+        return context
 
 class Ask_Question(View):
     def get(self, request, *args, **kwargs):
