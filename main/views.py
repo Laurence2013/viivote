@@ -92,17 +92,17 @@ class Main(View):
             vote_split = v_vote.split('_')
             vote_type = vote_split[1]
             vote_id = int(vote_split[0])
-
-        #if vote_type == 'a':
-        #    User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
-        #    self.__save_user_votes(Vote_A_table, vote_id)
-        #if vote_type == 'b':
-        #    User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
-        #    self.__save_user_votes(Vote_B_table, vote_id)
-        #if vote_type == 'c':
-        #    User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
-        #    self.__save_user_votes(Vote_C_table, vote_id)
         try:
+            if vote_type == 'a':
+                User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
+                self.__save_user_votes(Vote_A_table, vote_id)
+            if vote_type == 'b':
+                User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
+                self.__save_user_votes(Vote_B_table, vote_id)
+            if vote_type == 'c':
+                User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
+                self.__save_user_votes(Vote_C_table, vote_id)
+
             has_voted = Has_Voted_Per_Question(vote_type, vote_id)
             has_voted.get_qs_id(user_id)
 
@@ -143,8 +143,7 @@ class Main(View):
                 vote_b = Vote_B_table.objects.filter(id = get_vote_ids[0][1]).values_list('id','vote')[0]
                 con_vote_b = {'id': str(vote_b[0]) + '_b', 'vote': vote_b[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
-                con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
-                
+                con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}    
                 for voted in has_voted:
                     if voted[0] == get_q[0][0]:
                         context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True) 
