@@ -73,7 +73,7 @@
     },
     {
         "user_id": 3,
-        "has_voted": false,
+        "has_voted": true,
         "question_id": 7,
         "question": "Hello Logan",
         "vote_a": {

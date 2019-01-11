@@ -102,12 +102,16 @@ class Main(View):
         #if vote_type == 'c':
         #    User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
         #    self.__save_user_votes(Vote_C_table, vote_id)
+        try:
+            has_voted = Has_Voted_Per_Question(vote_type, vote_id)
+            has_voted.get_qs_id(user_id)
 
-        has_voted = Has_Voted_Per_Question(vote_type, vote_id)
-        has_voted.get_qs_id(user_id)
-
-        messages.success(request, f'You have successfully voted {username}')
-        return redirect('main')
+            messages.success(request, f'You have successfully voted {username}')
+            return redirect('main')
+        except UnboundLocalError as e:
+            print(e)
+            messages.warning(request, f'Please select a vote before submitting {username}')
+            return redirect('main')
 
     def __save_user_votes(self, vote, vote_id):
         vote = vote.objects.get(id = vote_id)
