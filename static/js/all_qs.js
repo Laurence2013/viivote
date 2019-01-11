@@ -3,6 +3,7 @@
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
       let results = JSON.parse(http.responseText);
+      console.log(results);
       let html = '';
 
       Object.values(results).forEach(function(qs){
@@ -14,11 +15,10 @@
         html += '<li><b>Vote C: </b><input type="radio" name="'+ qs.vote_c.questions_vote_id +'" value="'+ qs.vote_c.id +'">'+ qs.vote_c.vote +'</li>';
         html += '</div>'; 
         html += '<div class="form-group">';
-        //html += '<button class="btn btn-outline-info" type="submit">Vote</button>';
         if(qs.has_voted === false){
           html += '<button class="btn btn-outline-info" type="submit">Vote</button>';
         }else{
-          html += '<b>You have already voted</b>';
+          html += '<b>You have already voted </b>';
         }
         html += '</div>';
         html += '</ul>';

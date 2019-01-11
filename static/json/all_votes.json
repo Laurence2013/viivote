@@ -25,7 +25,7 @@
     },
     {
         "user_id": 2,
-        "has_voted": true,
+        "has_voted": false,
         "question_id": 5,
         "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
         "vote_a": {
@@ -73,7 +73,7 @@
     },
     {
         "user_id": 2,
-        "has_voted": false,
+        "has_voted": true,
         "question_id": 7,
         "question": "Hello Logan",
         "vote_a": {
@@ -92,6 +92,30 @@
             "id": "4_c",
             "vote": "Logan C",
             "questions_vote_id": 7,
+            "user_id": 2
+        }
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 8,
+        "question": "Hello Wolverine",
+        "vote_a": {
+            "id": "5_a",
+            "vote": "Wolverine A",
+            "questions_vote_id": 8,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "5_b",
+            "vote": "Wolverine B",
+            "questions_vote_id": 8,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "5_c",
+            "vote": "Wolverine C",
+            "questions_vote_id": 8,
             "user_id": 2
         }
     }

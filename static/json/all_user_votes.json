@@ -1,5 +1,28 @@
 [
     [],
-    [],
-    []
+    [
+        {
+            "id": 1,
+            "vote_b": 1,
+            "question_id": 4,
+            "question": "hello 3",
+            "vote": "b1"
+        },
+        {
+            "id": 3,
+            "vote_b": 3,
+            "question_id": 6,
+            "question": "Hello Wakanda",
+            "vote": "Wakanda b"
+        }
+    ],
+    [
+        {
+            "id": 4,
+            "vote_c": 4,
+            "question_id": 7,
+            "question": "Hello Logan",
+            "vote": "Logan C"
+        }
+    ]
 ]

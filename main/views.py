@@ -94,13 +94,13 @@ class Main(View):
             vote_id = int(vote_split[0])
         try:
             if vote_type == 'a':
-                User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id).save()
+                User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id, ask_question_id_id = ask_question_id).save()
                 self.__save_user_votes(Vote_A_table, vote_id)
             if vote_type == 'b':
-                User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id).save()
+                User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id, ask_question_id_id = ask_question_id).save()
                 self.__save_user_votes(Vote_B_table, vote_id)
             if vote_type == 'c':
-                User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id).save()
+                User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id, ask_question_id_id = ask_question_id).save()
                 self.__save_user_votes(Vote_C_table, vote_id)
 
             has_voted = Has_Voted_Per_Question(vote_type, vote_id)
@@ -180,9 +180,9 @@ class Ask_Question(View):
                 vote_a = request.POST.get('vote_a')
                 vote_b = request.POST.get('vote_b')
                 vote_c = request.POST.get('vote_c')
-                #self.__save_question(question, user_id)
-                #self.__save_votes(vote_a, vote_b, vote_c, user_id)
-                #self.__save_question_votes()
+                self.__save_question(question, user_id)
+                self.__save_votes(vote_a, vote_b, vote_c, user_id)
+                self.__save_question_votes()
         return redirect('main')
 
     def __save_question(self, question, user_id):

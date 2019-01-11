@@ -120,10 +120,8 @@ class User_Questions_Votes_Answers_table(models.Model):
 class User_Vote_A_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     vote_a_id = models.ForeignKey(Vote_A_table, on_delete = models.CASCADE, blank = False)
+    ask_question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
     date_updated = models.DateTimeField(auto_now_add = True)
-
-    def __str__(self):
-        return 'User id ', str(self.user_id), ' --> Vote A id ', str(self.vote_a_id)
 
     class Meta:
         verbose_name_plural = 'Users and Vote A'
@@ -131,10 +129,8 @@ class User_Vote_A_table(models.Model):
 class User_Vote_B_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     vote_b_id = models.ForeignKey(Vote_B_table, on_delete = models.CASCADE, blank = False)
+    ask_question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
     date_updated = models.DateTimeField(auto_now_add = True)
-
-    def __str__(self):
-        return 'User id ', str(self.user_id), ' --> Vote B id ', str(self.vote_b_id)
 
     class Meta:
         verbose_name_plural = 'Users and Vote B'
@@ -142,10 +138,8 @@ class User_Vote_B_table(models.Model):
 class User_Vote_C_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     vote_c_id = models.ForeignKey(Vote_C_table, on_delete = models.CASCADE, blank = False)
+    ask_question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
     date_updated = models.DateTimeField(auto_now_add = True)
-
-    def __str__(self):
-        return 'User id ', str(self.user_id), ' --> Vote C id ', str(self.vote_c_id)
 
     class Meta:
         verbose_name_plural = 'Users and Vote C'
