@@ -1,30 +1,30 @@
 [
     {
-        "user_id": 2,
-        "has_voted": false,
+        "user_id": 4,
+        "has_voted": true,
         "question_id": 4,
         "question": "hello 3",
         "vote_a": {
             "id": "1_a",
             "vote": "a1",
             "questions_vote_id": 4,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_b": {
             "id": "1_b",
             "vote": "b1",
             "questions_vote_id": 4,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_c": {
             "id": "1_c",
             "vote": "c1",
             "questions_vote_id": 4,
-            "user_id": 2
+            "user_id": 4
         }
     },
     {
-        "user_id": 2,
+        "user_id": 4,
         "has_voted": false,
         "question_id": 5,
         "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
@@ -32,23 +32,23 @@
             "id": "2_a",
             "vote": "In vulputate convallis libero ac imperdiet.",
             "questions_vote_id": 5,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_b": {
             "id": "2_b",
             "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
             "questions_vote_id": 5,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_c": {
             "id": "2_c",
             "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
             "questions_vote_id": 5,
-            "user_id": 2
+            "user_id": 4
         }
     },
     {
-        "user_id": 2,
+        "user_id": 4,
         "has_voted": false,
         "question_id": 6,
         "question": "Hello Wakanda",
@@ -56,23 +56,23 @@
             "id": "3_a",
             "vote": "Wakanda a",
             "questions_vote_id": 6,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_b": {
             "id": "3_b",
             "vote": "Wakanda b",
             "questions_vote_id": 6,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_c": {
             "id": "3_c",
             "vote": "Wakanda c",
             "questions_vote_id": 6,
-            "user_id": 2
+            "user_id": 4
         }
     },
     {
-        "user_id": 2,
+        "user_id": 4,
         "has_voted": false,
         "question_id": 7,
         "question": "Hello Logan",
@@ -80,23 +80,23 @@
             "id": "4_a",
             "vote": "Logan A",
             "questions_vote_id": 7,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_b": {
             "id": "4_b",
             "vote": "Logan B",
             "questions_vote_id": 7,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_c": {
             "id": "4_c",
             "vote": "Logan C",
             "questions_vote_id": 7,
-            "user_id": 2
+            "user_id": 4
         }
     },
     {
-        "user_id": 2,
+        "user_id": 4,
         "has_voted": false,
         "question_id": 8,
         "question": "Hello Wolverine",
@@ -104,19 +104,19 @@
             "id": "5_a",
             "vote": "Wolverine A",
             "questions_vote_id": 8,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_b": {
             "id": "5_b",
             "vote": "Wolverine B",
             "questions_vote_id": 8,
-            "user_id": 2
+            "user_id": 4
         },
         "vote_c": {
             "id": "5_c",
             "vote": "Wolverine C",
             "questions_vote_id": 8,
-            "user_id": 2
+            "user_id": 4
         }
     }
 ]

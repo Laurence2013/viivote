@@ -137,9 +137,10 @@ class User_Vote_C_table(models.Model):
 class Has_Voted_Per_Question_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
-    user_vote_a = models.ForeignKey(User_Vote_A_table, on_delete = models.CASCADE, blank = True, null = True)
-    user_vote_b = models.ForeignKey(User_Vote_B_table, on_delete = models.CASCADE, blank = True, null = True)
-    user_vote_c = models.ForeignKey(User_Vote_C_table, on_delete = models.CASCADE, blank = True, null = True)
+    vote_type = models.CharField(max_length = 10, blank = False)
+    vote_a = models.ForeignKey(Vote_A_table, on_delete = models.CASCADE, blank = True, null = True)
+    vote_b = models.ForeignKey(Vote_B_table, on_delete = models.CASCADE, blank = True, null = True)
+    vote_c = models.ForeignKey(Vote_C_table, on_delete = models.CASCADE, blank = True, null = True)
     date_updated = models.DateTimeField(auto_now_add = True)
     
     class Meta:
