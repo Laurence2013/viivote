@@ -14,6 +14,7 @@ from django.contrib import messages
 
 class Answer_Vote(View):
     def get(self, request, *args, **kwargs):
+        print(kwargs)
         return HttpResponse('Hello Answer Vote')
 
 class All_Votes(View):
@@ -150,7 +151,6 @@ class Main(View):
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
                 con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}    
                 for voted in has_voted1:
-                    print(voted[0],voted[1],voted[2],voted[3],voted[4])
                     if voted[0] == get_q[0][0]:
                         context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True, voted[1], voted[2], voted[3], voted[4]) 
                         break

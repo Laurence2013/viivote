@@ -24,7 +24,6 @@
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
       let results = JSON.parse(http.responseText);
-      console.log(results);
       let html = '';
 
       Object.values(results).forEach(function(qs){
@@ -40,7 +39,13 @@
           html += '<button class="btn btn-outline-info" type="submit">Vote</button>';
         }else{
           html += '<b>You have already voted </b>';
-          html += '<p><a href="'+ base_url + answer_vote + '/' +'">Click here to answer your vote</a></p>';
+          if(qs.vote_type){
+            let vote_type = qs.vote_type;
+            if(qs.vote_a_id){ var vote = qs.vote_a_id; }
+            if(qs.vote_b_id){ var vote = qs.vote_b_id; }
+            if(qs.vote_c_id){ var vote = qs.vote_c_id; }
+            html += '<p><a href="'+ base_url + answer_vote + '/'+ qs.question_id + '/' + vote_type + '/' + vote +'">Click here to answer your vote</a></p>';
+          }
         }
         html += '</div>';
         html += '</ul>';
