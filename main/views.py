@@ -137,6 +137,7 @@ class Main(View):
     def __get_votes(self, votes, user_id):
         context_list = [] 
         has_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id') 
+        has_voted1 = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id','vote_type','vote_a_id','vote_b_id','vote_c_id')
         for qv in votes:
             get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
             get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question')
@@ -148,18 +149,19 @@ class Main(View):
                 con_vote_b = {'id': str(vote_b[0]) + '_b', 'vote': vote_b[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
                 con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}    
-                for voted in has_voted:
+                for voted in has_voted1:
+                    print(voted[0],voted[1],voted[2],voted[3],voted[4])
                     if voted[0] == get_q[0][0]:
-                        context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True) 
+                        context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True, voted[1], voted[2], voted[3], voted[4]) 
                         break
                     if voted[0] != get_q[0][0]:
-                        context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False) 
+                        context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False, None, None, None, None) 
             if not has_voted:
-                context = self.__get_context(has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False) 
+                context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False, None, None, None, None) 
             context_list.append(context)
         return context_list
 
-    def __get_context(self, has_voted, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F):
+    def __get_context(self, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F, v_type, v_a, v_b, v_c):
         context = {
             'user_id': user_id,
             'has_voted': T_F,
@@ -168,6 +170,10 @@ class Main(View):
             'vote_a': con_vote_a,
             'vote_b': con_vote_b,
             'vote_c': con_vote_c,
+            'vote_type': v_type,
+            'vote_a_id': v_a,
+            'vote_b_id': v_b,
+            'vote_c_id': v_c,
         }        
         return context
 
