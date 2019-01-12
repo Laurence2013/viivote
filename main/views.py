@@ -12,6 +12,10 @@ from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
+class Answer_Vote(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Hello Answer Vote')
+
 class All_Votes(View):
     __get_json = Save_Data_To_Json()
     __all_votes_json = 'all_votes'

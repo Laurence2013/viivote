@@ -1,5 +1,26 @@
 (function(){
+  function getBaseUrl(){
+    let url = location.href;
+    let baseURL = url.substring(0, url.indexOf('/', 14));
+    if (baseURL.indexOf('http://localhost') != -1) {
+        // Base Url for localhost
+        let url = location.href;  // window.location.href;
+        let pathname = location.pathname;  // window.location.pathname;
+        let index1 = url.indexOf(pathname);
+        let index2 = url.indexOf("/", index1 + 1);
+        let baseLocalUrl = url.substr(0, index2);
+        return baseLocalUrl + "/";
+    }
+    else {
+        // Root Url for domain name
+        return baseURL + "/";
+    }
+  }
+
   let http = new XMLHttpRequest();
+  let base_url = getBaseUrl();
+  let answer_vote = 'answer_vote';
+
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
       let results = JSON.parse(http.responseText);
@@ -19,6 +40,7 @@
           html += '<button class="btn btn-outline-info" type="submit">Vote</button>';
         }else{
           html += '<b>You have already voted </b>';
+          html += '<p><a href="'+ base_url + answer_vote + '/' +'">Click here to answer your vote</a></p>';
         }
         html += '</div>';
         html += '</ul>';

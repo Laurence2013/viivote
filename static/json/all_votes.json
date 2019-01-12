@@ -1,7 +1,7 @@
 [
     {
         "user_id": 2,
-        "has_voted": true,
+        "has_voted": false,
         "question_id": 4,
         "question": "hello 3",
         "vote_a": {
@@ -49,7 +49,7 @@
     },
     {
         "user_id": 2,
-        "has_voted": true,
+        "has_voted": false,
         "question_id": 6,
         "question": "Hello Wakanda",
         "vote_a": {
@@ -73,7 +73,7 @@
     },
     {
         "user_id": 2,
-        "has_voted": true,
+        "has_voted": false,
         "question_id": 7,
         "question": "Hello Logan",
         "vote_a": {
