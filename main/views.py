@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import HttpResponse, render, redirect
-from main.forms import Ask_A_Question
+from main.forms import Ask_A_Question, Answer_Vote_Form
 from main.models import *
 from main.save_data_to_json import Save_Data_To_Json
 from main.view_all_my_votess import View_All_My_Votess
@@ -14,8 +14,37 @@ from django.contrib import messages
 
 class Answer_Vote(View):
     def get(self, request, *args, **kwargs):
-        print(kwargs)
-        return HttpResponse('Hello Answer Vote')
+        answer_vote = Answer_Vote_Form()
+        get_question = Ask_A_Question_table.objects.filter(id = kwargs.get('question_id')).values('id','question')[0]
+        if kwargs.get('vote_type') == 'a':
+            get_vote = Vote_A_table.objects.filter(id = kwargs.get('vote')).values('id','vote')[0]
+        if kwargs.get('vote_type') == 'b':
+            get_vote = Vote_B_table.objects.filter(id = kwargs.get('vote')).values('id','vote')[0]
+        if kwargs.get('vote_type') == 'c':
+            get_vote = Vote_C_table.objects.filter(id = kwargs.get('vote')).values('id','vote')[0]
+
+        context = {
+            'user_id': request.user.id,
+            'question_id': get_question.get('id'),
+            'question': get_question.get('question'),
+            'vote_id': get_vote.get('id'),
+            'vote': get_vote.get('vote'),
+            'vote_type': kwargs.get('vote_type'),
+        }
+        return render(request, 'answer_vote.html', {'context': context, 'form': answer_vote,})
+
+    def post(self, request, *args, **kwargs):
+        #Answer_table.objects.create(answer = request.POST.get('answer')).save()
+        get_answer = Answer_table.objects.values('id','answer').latest('date_updated')
+        
+        #if request.POST.get('vote_type') == 'a':
+        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_a_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+        #if request.POST.get('vote_type') == 'b':
+        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_b_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+        #if request.POST.get('vote_type') == 'c':
+        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_c_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+
+        return HttpResponse('Hello world')
 
 class All_Votes(View):
     __get_json = Save_Data_To_Json()

@@ -95,18 +95,6 @@ class Questions_Votes_table(models.Model):
     class Meta:
         verbose_name_plural = 'Question and Votes'
 
-class User_Questions_Votes_Answers_table(models.Model):
-    user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
-    question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
-    answer_id = models.ForeignKey(Answer_table, on_delete = models.CASCADE, blank = False)
-    date_updated = models.DateTimeField(auto_now_add = True)
-
-    def __str__(self):
-        return 'User id ', str(self.user_id), ' --> Question id ', str(self.question_id), ' --> Answers id ', str(self.answer_id)
-
-    class Meta:
-        verbose_name_plural = 'User and Questions and Answers'
-
 class User_Vote_A_table(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
     vote_a_id = models.ForeignKey(Vote_A_table, on_delete = models.CASCADE, blank = False)
@@ -145,3 +133,16 @@ class Has_Voted_Per_Question_table(models.Model):
     
     class Meta:
         verbose_name_plural = 'Has the user answered this questions via voting?'
+
+class User_Questions_Votes_Answers_table(models.Model):
+    user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
+    question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
+    answer_id = models.ForeignKey(Answer_table, on_delete = models.CASCADE, blank = False)
+    vote_type = models.CharField(max_length = 10, blank = False, null = True)
+    vote_a = models.ForeignKey(Vote_A_table, on_delete = models.CASCADE, blank = True, null = True)
+    vote_b = models.ForeignKey(Vote_B_table, on_delete = models.CASCADE, blank = True, null = True)
+    vote_c = models.ForeignKey(Vote_C_table, on_delete = models.CASCADE, blank = True, null = True)
+    date_updated = models.DateTimeField(auto_now_add = True)
+
+    class Meta:
+        verbose_name_plural = 'User and Questions and Answers'
