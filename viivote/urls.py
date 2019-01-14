@@ -21,6 +21,8 @@ urlpatterns = [
 
     path('main/answer_vote/', Answer_Vote.as_view(), name = 'answer_vote'),
     path('main/answer_vote/<slug:question_id>/<slug:vote_type>/<slug:vote>/', Answer_Vote.as_view(), name = 'answer_vote'),
+    
+    path('main/edit/<int:answer_id>/', Edit.as_view(), name = 'edit'),
 
     path('main/view_all_my_votes/get_all_user_qs_vs', Get_All_My_Votes.as_view(), name = 'get_all_user_qs_vs'),
 

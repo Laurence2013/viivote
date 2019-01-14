@@ -19,6 +19,7 @@
   let http = new XMLHttpRequest();
   let base_url = getBaseUrl();
   let answer_vote = 'answer_vote';
+  let edit = 'edit';
 
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
@@ -36,7 +37,11 @@
         if(qs.answers.length > 0){
           html += '<b>All Answers</b>';
           Object.values(qs.answers).forEach(function(qss){
-            html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' </li>';
+            if(qs.user_id === qss.user_id){
+              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="'+ base_url + edit + '/' + qss.answer_id +'">Edit</a> | <a href="#">Delete</a></small></li>';
+            }else{
+              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="#">Replay</a></small></li>';
+            }
           });
         }
         html += '</div>'; 

@@ -12,6 +12,10 @@ from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
+class Edit(View):
+    def get(self, *args, **kwargs):
+        return HttpResponse('Hello Edit')
+
 class Answer_Vote(View):
     def get(self, request, *args, **kwargs):
         answer_vote = Answer_Vote_Form()
