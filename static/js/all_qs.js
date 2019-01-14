@@ -20,6 +20,7 @@
   let base_url = getBaseUrl();
   let answer_vote = 'answer_vote';
   let edit = 'edit';
+  let del_ete = 'delete'
 
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
@@ -38,7 +39,7 @@
           html += '<b>All Answers</b>';
           Object.values(qs.answers).forEach(function(qss){
             if(qs.user_id === qss.user_id){
-              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="'+ base_url + edit + '/' + qss.answer_id +'">Edit</a> | <a href="#">Delete</a></small></li>';
+              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="'+ base_url + edit + '/' + qss.answer_id +'">Edit</a> | <a href="'+ base_url + del_ete + '/'+ qss.answer_id +'">Delete</a></small></li>';
             }else{
               html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="#">Replay</a></small></li>';
             }

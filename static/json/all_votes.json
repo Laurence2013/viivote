@@ -33,13 +33,6 @@
                 "answer": "qazwsx",
                 "user_id": 2,
                 "username": "lozza187"
-            },
-            {
-                "question_id": 4,
-                "answer_id": 5,
-                "answer": "hello 7 7 7 7 7 7 7 7",
-                "user_id": 2,
-                "username": "lozza187"
             }
         ]
     },
@@ -195,13 +188,6 @@
         "vote_b_id": null,
         "vote_c_id": null,
         "answers": [
-            {
-                "question_id": 8,
-                "answer_id": 2,
-                "answer": "bgbbbggggbb",
-                "user_id": 2,
-                "username": "lozza187"
-            },
             {
                 "question_id": 8,
                 "answer_id": 6,

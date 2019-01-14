@@ -22,6 +22,9 @@ urlpatterns = [
     path('main/answer_vote/', Answer_Vote.as_view(), name = 'answer_vote'),
     path('main/answer_vote/<slug:question_id>/<slug:vote_type>/<slug:vote>/', Answer_Vote.as_view(), name = 'answer_vote'),
     
+    #path('main/delete/', Delete.as_view(), name = 'delete'),
+    path('main/delete/<int:answer_id>/', Delete.as_view(), name = 'delete'),
+    
     path('main/edit/', Edit.as_view(), name = 'edit'),
     path('main/edit/<int:answer_id>/', Edit.as_view(), name = 'edit'),
 

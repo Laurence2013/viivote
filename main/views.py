@@ -12,6 +12,14 @@ from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
+class Delete(View):
+    def get(self, request, *args, **kwargs): 
+        username = request.user
+        Answer_table.objects.filter(id = kwargs.get('answer_id')).delete()
+        User_Questions_Votes_Answers_table.objects.filter(answer_id_id = kwargs.get('answer_id')).delete()
+        messages.success(request, f'You have successfully deleted a post {username}')
+        return redirect('main')
+
 class Edit(View):
     def get(self, request, *args, **kwargs):
         get_answer = Answer_table.objects.filter(id = kwargs.get('answer_id')).values('id','answer')[0]
