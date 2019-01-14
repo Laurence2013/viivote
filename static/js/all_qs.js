@@ -36,7 +36,7 @@
         if(qs.answers.length > 0){
           html += '<b>All Answers</b>';
           Object.values(qs.answers).forEach(function(qss){
-            html += '<li>'+ qss.answer +'</li>';
+            html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' </li>';
           });
         }
         html += '</div>'; 
