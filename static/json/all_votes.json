@@ -139,7 +139,7 @@
     },
     {
         "user_id": 3,
-        "has_voted": false,
+        "has_voted": true,
         "question_id": 8,
         "question": "Hello Wolverine",
         "vote_a": {
@@ -160,15 +160,20 @@
             "questions_vote_id": 8,
             "user_id": 3
         },
-        "vote_type": null,
+        "vote_type": "c",
         "vote_a_id": null,
         "vote_b_id": null,
-        "vote_c_id": null,
+        "vote_c_id": 5,
         "answers": [
             {
                 "question_id": 8,
                 "answer_id": 2,
                 "answer": "reerege"
+            },
+            {
+                "question_id": 8,
+                "answer_id": 6,
+                "answer": "Lorem Wolves 333"
             }
         ]
     }
