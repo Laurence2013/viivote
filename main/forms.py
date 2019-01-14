@@ -1,5 +1,8 @@
 from django import forms
 
+class Edit_Answer(forms.Form):
+     edit = forms.CharField(widget = forms.Textarea(attrs={'cols':80, 'rows': 5}), label = 'Edit Answer')
+
 class Answer_Vote_Form(forms.Form):
     answer = forms.CharField(widget = forms.Textarea(attrs={'cols':80, 'rows': 5}), label = 'Answer Vote')
 

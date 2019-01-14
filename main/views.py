@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import HttpResponse, render, redirect
-from main.forms import Ask_A_Question, Answer_Vote_Form
+from main.forms import Ask_A_Question, Answer_Vote_Form, Edit_Answer
 from main.models import *
 from main.save_data_to_json import Save_Data_To_Json
 from main.view_all_my_votess import View_All_My_Votess
@@ -13,8 +13,22 @@ from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
 class Edit(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Hello Edit')
+    def get(self, request, *args, **kwargs):
+        get_answer = Answer_table.objects.filter(id = kwargs.get('answer_id')).values('id','answer')[0]
+        edit = Edit_Answer()
+        return render(request, 'edit.html', {'context': get_answer, 'edit': edit})
+
+    def post(self, request, *args, **kwargs):
+        username = request.user
+        answer_id = request.POST.get('answer_id')
+        edit = request.POST.get('edit')
+        form = Edit_Answer(request.POST or None)
+        
+        if form.is_valid():
+            Answer_table.objects.filter(id = answer_id).update(answer = edit)
+
+        messages.success(request, f'You have successfully editted and updated {username}')
+        return redirect('main')
 
 class Answer_Vote(View):
     def get(self, request, *args, **kwargs):
