@@ -34,17 +34,19 @@ class Answer_Vote(View):
         return render(request, 'answer_vote.html', {'context': context, 'form': answer_vote,})
 
     def post(self, request, *args, **kwargs):
-        #Answer_table.objects.create(answer = request.POST.get('answer')).save()
+        username = request.user
+        Answer_table.objects.create(answer = request.POST.get('answer')).save()
         get_answer = Answer_table.objects.values('id','answer').latest('date_updated')
         
-        #if request.POST.get('vote_type') == 'a':
-        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_a_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
-        #if request.POST.get('vote_type') == 'b':
-        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_b_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
-        #if request.POST.get('vote_type') == 'c':
-        #    User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_c_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+        if request.POST.get('vote_type') == 'a':
+            User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_a_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+        if request.POST.get('vote_type') == 'b':
+            User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_b_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
+        if request.POST.get('vote_type') == 'c':
+            User_Questions_Votes_Answers_table.objects.create(user_id_id = request.POST.get('user_id'), question_id_id = request.POST.get('question_id'), answer_id_id = get_answer.get('id'), vote_c_id = request.POST.get('vote_id'), vote_type = request.POST.get('vote_type')).save()
 
-        return HttpResponse('Hello world')
+        messages.success(request, f'You have successfully answered your vote {username}')
+        return redirect('main')
 
 class All_Votes(View):
     __get_json = Save_Data_To_Json()
@@ -160,16 +162,30 @@ class Main(View):
             vote_id = Questions_Votes_table.objects.filter(votes_id_id = ques_vote_q[0]).values_list('votes_id_id')
             try:
                 votes_list.append(vote_id[0][0])
-            except:
-                pass
+            except IndexError as e:
+                pass #print(e) save to log eventually
         return self.__get_votes(votes_list, user_id)
 
     def __get_votes(self, votes, user_id):
-        context_list = [] 
+        context_list = []
+        qs_answers = []
         has_voted = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id') 
         has_voted1 = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id','vote_type','vote_a_id','vote_b_id','vote_c_id')
         for qv in votes:
             get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
+            get_qs_vote = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs).values('question_id_id','answer_id_id')
+
+            try:
+                for vote in range(0,len(get_qs_vote)):
+                    get_anss = Answer_table.objects.filter(id = get_qs_vote[vote].get('answer_id_id')).values('id','answer')[0]
+                    qs_anss = get_qs_vote[0].get('question_id_id'), get_anss
+                    qs_answers.append(qs_anss)
+                print(qs_answers)
+                #get_answers = Answer_table.objects.filter(id = get_qs_vote[0].get('answer_id_id')).values('id','answer').latest('date_updated')
+                #qs_answers = get_qs_vote[0].get('question_id_id'), get_answers
+            except IndexError as e:
+                pass #print(e) save to log eventually
+            
             get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question')
             for v in range(0,len(get_q)):
                 get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
@@ -179,18 +195,19 @@ class Main(View):
                 con_vote_b = {'id': str(vote_b[0]) + '_b', 'vote': vote_b[1], 'questions_vote_id': get_qs, 'user_id': user_id,}
                 vote_c = Vote_C_table.objects.filter(id = get_vote_ids[0][2]).values_list('id','vote')[0]
                 con_vote_c = {'id': str(vote_c[0]) + '_c', 'vote': vote_c[1], 'questions_vote_id': get_qs, 'user_id': user_id,}    
+
                 for voted in has_voted1:
                     if voted[0] == get_q[0][0]:
-                        context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True, voted[1], voted[2], voted[3], voted[4]) 
+                        context = self.__get_context(qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, True, voted[1], voted[2], voted[3], voted[4]) 
                         break
                     if voted[0] != get_q[0][0]:
-                        context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False, None, None, None, None) 
+                        context = self.__get_context(qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False,None,None,None,None) 
             if not has_voted:
-                context = self.__get_context(get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False, None, None, None, None) 
+                context = self.__get_context(qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, False, None, None, None, None) 
             context_list.append(context)
         return context_list
 
-    def __get_context(self, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F, v_type, v_a, v_b, v_c):
+    def __get_context(self, qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F, v_type, v_a, v_b, v_c):
         context = {
             'user_id': user_id,
             'has_voted': T_F,
@@ -204,6 +221,9 @@ class Main(View):
             'vote_b_id': v_b,
             'vote_c_id': v_c,
         }        
+        if qs_answers[0] == get_q[0][0]:
+            answer = {'answer': qs_answers[1]}
+            context.update(answer)
         return context
 
 class Ask_Question(View):
