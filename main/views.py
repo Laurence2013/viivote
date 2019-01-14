@@ -173,15 +173,12 @@ class Main(View):
         has_voted1 = Has_Voted_Per_Question_table.objects.filter(user_id_id = user_id).values_list('question_id_id','vote_type','vote_a_id','vote_b_id','vote_c_id')
         for qv in votes:
             get_qs = Questions_Votes_table.objects.filter(votes_id_id = qv).values_list('question_id_id')[0][0]
-            get_qs_vote = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs).values('question_id_id','answer_id_id')
-
+            get_qs_vote = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs).values('question_id_id','answer_id_id','user_id_id')
             try:
                 for vote in range(0,len(get_qs_vote)):
                     get_anss = Answer_table.objects.filter(id = get_qs_vote[vote].get('answer_id_id')).values('id','answer')[0]
                     qs_anss = get_qs_vote[0].get('question_id_id'), get_anss
                     qs_answers.append(qs_anss)
-                #get_answers = Answer_table.objects.filter(id = get_qs_vote[0].get('answer_id_id')).values('id','answer').latest('date_updated')
-                #qs_answers = get_qs_vote[0].get('question_id_id'), get_answers
             except IndexError as e:
                 pass #print(e) save to log eventually
             
@@ -224,16 +221,16 @@ class Main(View):
         }        
         for ans in range(0,len(qs_answers)):
             if get_q[0][0] == qs_answers[ans][0]:
+                get_user = User_Questions_Votes_Answers_table.objects.filter(answer_id_id = qs_answers[ans][1].get('id')).values('user_id_id')[0]
+                username = User.objects.filter(id = get_user.get('user_id_id')).values('id','username')[0]
                 context_ans = {
                     'question_id': get_q[0][0],
                     'answer_id': qs_answers[ans][1].get('id'),
                     'answer': qs_answers[ans][1].get('answer'),
+                    'user_id': username.get('id'),
+                    'username': username.get('username'),
                 }
                 group_ans.append(context_ans)
-
-        #if qs_answers[0] == get_q[0][0]:
-        #    answer = {'answer': qs_answers[1]}
-        #    context.update(answer)
         return context
 
 class Ask_Question(View):

@@ -34,6 +34,7 @@
         html += '<li><b>Vote B: </b><input type="radio" name="'+ qs.vote_b.questions_vote_id +'" value="'+ qs.vote_b.id +'">'+ qs.vote_b.vote +'</li>';
         html += '<li><b>Vote C: </b><input type="radio" name="'+ qs.vote_c.questions_vote_id +'" value="'+ qs.vote_c.id +'">'+ qs.vote_c.vote +'</li>';
         if(qs.answers.length > 0){
+          html += '<b>All Answers</b>';
           Object.values(qs.answers).forEach(function(qss){
             html += '<li>'+ qss.answer +'</li>';
           });
