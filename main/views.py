@@ -180,7 +180,6 @@ class Main(View):
                     get_anss = Answer_table.objects.filter(id = get_qs_vote[vote].get('answer_id_id')).values('id','answer')[0]
                     qs_anss = get_qs_vote[0].get('question_id_id'), get_anss
                     qs_answers.append(qs_anss)
-                print(qs_answers)
                 #get_answers = Answer_table.objects.filter(id = get_qs_vote[0].get('answer_id_id')).values('id','answer').latest('date_updated')
                 #qs_answers = get_qs_vote[0].get('question_id_id'), get_answers
             except IndexError as e:
@@ -208,6 +207,7 @@ class Main(View):
         return context_list
 
     def __get_context(self, qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F, v_type, v_a, v_b, v_c):
+        group_ans = []
         context = {
             'user_id': user_id,
             'has_voted': T_F,
@@ -220,10 +220,20 @@ class Main(View):
             'vote_a_id': v_a,
             'vote_b_id': v_b,
             'vote_c_id': v_c,
+            'answers': group_ans,
         }        
-        if qs_answers[0] == get_q[0][0]:
-            answer = {'answer': qs_answers[1]}
-            context.update(answer)
+        for ans in range(0,len(qs_answers)):
+            if get_q[0][0] == qs_answers[ans][0]:
+                context_ans = {
+                    'question_id': get_q[0][0],
+                    'answer_id': qs_answers[ans][1].get('id'),
+                    'answer': qs_answers[ans][1].get('answer'),
+                }
+                group_ans.append(context_ans)
+
+        #if qs_answers[0] == get_q[0][0]:
+        #    answer = {'answer': qs_answers[1]}
+        #    context.update(answer)
         return context
 
 class Ask_Question(View):
