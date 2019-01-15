@@ -273,6 +273,7 @@ class Ask_Question(View):
         return render(request, 'ask_question.html', {'form':question})
 
     def post(self, request, *args, **kwargs):
+        username = request.user
         if request.user.is_authenticated == True:
             user_id = request.user.id
             if request.method == 'POST':
@@ -283,6 +284,7 @@ class Ask_Question(View):
                 self.__save_question(question, user_id)
                 self.__save_votes(vote_a, vote_b, vote_c, user_id)
                 self.__save_question_votes()
+        messages.success(request, f'You have successfully asked a question {username}')
         return redirect('main')
 
     def __save_question(self, question, user_id):

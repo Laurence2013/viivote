@@ -232,5 +232,121 @@
                 "username": "lozza187"
             }
         ]
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 10,
+        "question": "Hello Ark Angel",
+        "vote_a": {
+            "id": "7_a",
+            "vote": "Ark Angel A",
+            "questions_vote_id": 10,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "7_b",
+            "vote": "Ark Angel B",
+            "questions_vote_id": 10,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "7_c",
+            "vote": "Ark Angel C",
+            "questions_vote_id": 10,
+            "user_id": 2
+        },
+        "vote_type": null,
+        "vote_a_id": null,
+        "vote_b_id": null,
+        "vote_c_id": null,
+        "answers": []
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 11,
+        "question": "Hello Storm",
+        "vote_a": {
+            "id": "8_a",
+            "vote": "Storm A",
+            "questions_vote_id": 11,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "8_b",
+            "vote": "Storm B",
+            "questions_vote_id": 11,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "8_c",
+            "vote": "Storm C",
+            "questions_vote_id": 11,
+            "user_id": 2
+        },
+        "vote_type": null,
+        "vote_a_id": null,
+        "vote_b_id": null,
+        "vote_c_id": null,
+        "answers": []
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 12,
+        "question": "Hello Cyclops",
+        "vote_a": {
+            "id": "9_a",
+            "vote": "Cyclops A",
+            "questions_vote_id": 12,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "9_b",
+            "vote": "Cyclops B",
+            "questions_vote_id": 12,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "9_c",
+            "vote": "Cyclops C",
+            "questions_vote_id": 12,
+            "user_id": 2
+        },
+        "vote_type": null,
+        "vote_a_id": null,
+        "vote_b_id": null,
+        "vote_c_id": null,
+        "answers": []
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 13,
+        "question": "Hello Iceman",
+        "vote_a": {
+            "id": "10_a",
+            "vote": "Iceman A",
+            "questions_vote_id": 13,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "10_b",
+            "vote": "Iceman B",
+            "questions_vote_id": 13,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "10_c",
+            "vote": "Iceman C",
+            "questions_vote_id": 13,
+            "user_id": 2
+        },
+        "vote_type": null,
+        "vote_a_id": null,
+        "vote_b_id": null,
+        "vote_c_id": null,
+        "answers": []
     }
 ]
