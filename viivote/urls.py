@@ -19,6 +19,10 @@ urlpatterns = [
     path('main/all_votes/', All_Votes.as_view(), name = 'all_votes'),
     path('main/view_all_my_votes/', View_All_My_Votes.as_view(), name = 'view_all_my_votes'),
 
+    path('main/view_all_my_questions/', View_All_My_Questions.as_view(), name = 'view_all_my_questions'),
+    
+    path('main/my_bookmarks/', My_Bookmarks.as_view(), name = 'my_bookmarks'),
+
     path('main/answer_vote/', Answer_Vote.as_view(), name = 'answer_vote'),
     path('main/answer_vote/<slug:question_id>/<slug:vote_type>/<slug:vote>/', Answer_Vote.as_view(), name = 'answer_vote'),
     

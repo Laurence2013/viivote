@@ -41,7 +41,7 @@
             if(qs.user_id === qss.user_id){
               html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="'+ base_url + edit + '/' + qss.answer_id +'">Edit</a> | <a href="'+ base_url + del_ete + '/'+ qss.answer_id +'">Delete</a></small></li>';
             }else{
-              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +' -- <small><a href="#">Replay</a></small></li>';
+              html += '<li>'+ qss.answer +' <small>answered by</small> '+ qss.username +'</li>';
             }
           });
         }

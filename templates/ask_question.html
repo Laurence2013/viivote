@@ -8,7 +8,10 @@
       <small><strong>Hello</strong> {{ user.username }}</small>
       <p><a href='{% url 'profile' %}'>View Profile</a></p>
       <p><a href='{% url 'main' %}'>Back to main</a></p>
+      <p><a href='{% url 'view_all_my_votes' %}'>View all my votes</a></p>
+      <p><a href='{% url 'view_all_my_questions' %}'>View all my questions</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
+      <hr>
       <form method='POST' action='{% url 'ask_question' %}'>{% csrf_token %}
         <fieldset>
           <legend>Ask a question</legend>

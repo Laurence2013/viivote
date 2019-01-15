@@ -16,6 +16,7 @@
       <p><strong><a href='{% url 'ask_question' %}'>Click here to ask a question</a></strong></p>
       <p><a href='{% url 'profile' %}'>View Profile</a></p>
       <p><a href='{% url 'view_all_my_votes' %}'>View all my votes</a></p>
+      <p><a href='{% url 'view_all_my_questions' %}'>View all my questions</a></p>
       <a href='{% url 'logout' %}'>Log out</a>
       <hr>
       <form method="POST">{% csrf_token %}

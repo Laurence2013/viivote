@@ -12,6 +12,14 @@ from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
 from django.contrib import messages
 
+class My_Bookmarks(View):
+    def get(self, request, *args, **kwargs): 
+        return HttpResponse('My bookmarks')
+
+class View_All_My_Questions(View):
+    def get(self, request, *args, **kwargs): 
+        return HttpResponse('View all my questions')
+
 class Delete(View):
     def get(self, request, *args, **kwargs): 
         username = request.user
