@@ -3,31 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div class='border-top pt-3'>
-    <div>
-      {% if messages %}
-        <div class='alert alert-{{ messages.tags }}'>
-          {{ message }}
-        </div>
-      {% endif %}
-    </div>
+  <div class='content-section'>
     {% if user.is_authenticated %}
-      <small><strong>Hello</strong> {{ user.username }}</small>
-      <p><strong><a href='{% url 'ask_question' %}'>Click here to ask a question</a></strong></p>
-      <p><a href='{% url 'profile' %}'>View Profile</a></p>
-      <p><a href='{% url 'view_all_my_votes' %}'>View all my votes</a></p>
-      <p><a href='{% url 'view_all_my_questions' %}'>View all my questions</a></p>
-      <a href='{% url 'logout' %}'>Log out</a>
-      <hr>
       <form method="POST">{% csrf_token %}
         <fieldset>
           <legend>View all votes</legend>
           <section id='votes'></section>
         </fieldset>
       </form>
-    {% else %} 
-      <a href='{% url 'login' %}'>Log In</a>
-      <a href='{% url 'register' %}'>Sign Up Now</a>
     {% endif %}
   </div>
   <script src="{% static 'js/all_qs.js' %}"></script>

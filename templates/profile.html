@@ -5,11 +5,7 @@
 {% block content %}
   <div class='content-section'>
     {% if user.is_authenticated %}
-      {% if user.username %}
-        <b>Hello </b>{{ user.username }}
-        <p><a href='{% url 'main' %}'>Back to main</a></p>
-        <a href='{% url 'logout'%}'>Log out</a>
-      {% endif %}
+      <b>Edit and Update your profile</b>
     {% endif %}
   </div>
 {% endblock %}
