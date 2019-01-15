@@ -1,3 +1,4 @@
+import pprint
 import os
 from django.db.models import F
 from django.conf import settings
@@ -10,15 +11,34 @@ from main.models import *
 from main.save_data_to_json import Save_Data_To_Json
 from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
+from main.view_all_my_questionss import View_All_My_Questionss
 from django.contrib import messages
 
 class My_Bookmarks(View):
     def get(self, request, *args, **kwargs): 
         return HttpResponse('My bookmarks')
 
-class View_All_My_Questions(View):
+class Set_All_My_Questions(View):
+    __get_json = Save_Data_To_Json()
+    __base_dir = settings.BASE_DIR
+    __view_all_my_qs_json = 'view_all_my_questions'
+    __pp = pprint.PrettyPrinter(indent = 3)
+
     def get(self, request, *args, **kwargs): 
-        return HttpResponse('View all my questions')
+        check_json = self.__base_dir + '/static/json/'+ self.__view_all_my_qs_json +'.json'
+        get_qs = View_All_My_Questionss(request.user.id)
+        questions = get_qs.get_questions()
+        if check_json != 0 or check_json == 0:
+            self.__get_json.save_json(questions, self.__view_all_my_qs_json)
+        return render(request, 'view_all_my_questions.html', {})
+
+class Get_All_My_Questions(View):
+    __get_json = Save_Data_To_Json()
+    __view_all_my_qs_json = 'view_all_my_questions'
+
+    def get(self, request, *args, **kwargs):
+        get_json = self.__get_json.get_json_file(self.__view_all_my_qs_json)
+        return JsonResponse(get_json, safe = False)
 
 class Delete(View):
     def get(self, request, *args, **kwargs): 

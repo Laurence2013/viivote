@@ -19,7 +19,8 @@ urlpatterns = [
     path('main/all_votes/', All_Votes.as_view(), name = 'all_votes'),
     path('main/view_all_my_votes/', View_All_My_Votes.as_view(), name = 'view_all_my_votes'),
 
-    path('main/view_all_my_questions/', View_All_My_Questions.as_view(), name = 'view_all_my_questions'),
+    path('main/set_all_my_questions/', Set_All_My_Questions.as_view(), name = 'set_all_my_questions'),
+    path('main/set_all_my_questions/get_all_my_questions/', Get_All_My_Questions.as_view(), name = 'get_all_my_questions'),
     
     path('main/my_bookmarks/', My_Bookmarks.as_view(), name = 'my_bookmarks'),
 

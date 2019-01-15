@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class='content-section'>
+    {% if user.is_authenticated %}
+      <fieldset>
+        <legend>View all my questions</legend>
+        <section id='votes'></section>
+      </fieldset>
+    {% endif %}
+  </div>
+  <script src="{% static 'js/view_all_my_qs.js' %}"></script>
+{% endblock %}
+
