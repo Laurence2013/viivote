@@ -3,7 +3,12 @@
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
       let results = JSON.parse(http.responseText);
-      console.log(results);
+
+      Object.values(results).forEach(function(result){
+        console.log(result.question);
+      });
+
+
     }
   }
   http.open('GET', 'get_all_my_questions', true);
