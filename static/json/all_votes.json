@@ -356,5 +356,34 @@
         "vote_b_id": null,
         "vote_c_id": null,
         "answers": []
+    },
+    {
+        "user_id": 2,
+        "has_voted": false,
+        "question_id": 14,
+        "question": "Captain America is asking a question",
+        "vote_a": {
+            "id": "11_a",
+            "vote": "CA - A",
+            "questions_vote_id": 14,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "11_b",
+            "vote": "CA - B",
+            "questions_vote_id": 14,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "11_c",
+            "vote": "CA - C",
+            "questions_vote_id": 14,
+            "user_id": 2
+        },
+        "vote_type": null,
+        "vote_a_id": null,
+        "vote_b_id": null,
+        "vote_c_id": null,
+        "answers": []
     }
 ]
