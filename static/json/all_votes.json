@@ -370,13 +370,13 @@
         },
         "vote_b": {
             "id": "11_b",
-            "vote": "CA - B",
+            "vote": "CA - B2",
             "questions_vote_id": 14,
             "user_id": 3
         },
         "vote_c": {
             "id": "11_c",
-            "vote": "CA - C",
+            "vote": "CA - C2",
             "questions_vote_id": 14,
             "user_id": 3
         },

@@ -53,7 +53,9 @@ class Set_All_My_Questions(View):
             Vote_C_table.objects.filter(id = vote_c_id).update(vote = vote_c)
         if question == '' and vote_a == '' and vote_b == '' and vote_c == '':
             messages.warning(request, f'You did not update anything so far, you can always try again later if you want {username}')
-        messages.success(request, f'You successfully updated your question or votes {username}')
+            return redirect('set_all_my_questions')
+
+        messages.success(request, f'You successfully updated your question or vote(s) {username}')
         return redirect('set_all_my_questions')
 
 class Get_All_My_Questions(View):
