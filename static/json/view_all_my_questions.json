@@ -1,152 +1,52 @@
 [
     {
         "question": {
-            "id": 13,
-            "question": "Hello Iceman",
-            "date_updated": "2019-01-15T12:11:47.764Z"
+            "id": 14,
+            "question": "Captain America is asking a question",
+            "date_updated": "2019-01-15T15:59:35.112Z"
         },
         "vote_a": {
-            "id": 10,
-            "vote": "Iceman A",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:47.889Z"
-        },
-        "vote_b": {
-            "id": 10,
-            "vote": "Iceman B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:47.972Z"
-        },
-        "vote_c": {
-            "id": 10,
-            "vote": "Iceman C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:48.023Z"
-        }
-    },
-    {
-        "question": {
-            "id": 12,
-            "question": "Hello Cyclops",
-            "date_updated": "2019-01-15T12:10:37.860Z"
-        },
-        "vote_a": {
-            "id": 9,
-            "vote": "Cyclops A",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:37.950Z"
-        },
-        "vote_b": {
-            "id": 9,
-            "vote": "Cyclops B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:37.992Z"
-        },
-        "vote_c": {
-            "id": 9,
-            "vote": "Cyclops C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:38.034Z"
-        }
-    },
-    {
-        "question": {
             "id": 11,
-            "question": "Hello Storm",
-            "date_updated": "2019-01-15T12:10:01.964Z"
-        },
-        "vote_a": {
-            "id": 8,
-            "vote": "Storm A",
+            "vote": "CA - A2",
             "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.203Z"
+            "date_updated": "2019-01-15T15:59:35.302Z"
         },
         "vote_b": {
-            "id": 8,
-            "vote": "Storm B",
+            "id": 11,
+            "vote": "CA - B2",
             "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.286Z"
+            "date_updated": "2019-01-15T15:59:35.385Z"
         },
         "vote_c": {
-            "id": 8,
-            "vote": "Storm C",
+            "id": 11,
+            "vote": "CA - C",
             "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.328Z"
+            "date_updated": "2019-01-15T15:59:35.469Z"
         }
     },
     {
         "question": {
-            "id": 10,
-            "question": "Hello Ark Angel",
-            "date_updated": "2019-01-15T12:08:22.325Z"
+            "id": 6,
+            "question": "Hello Wakanda",
+            "date_updated": "2019-01-04T21:03:52.225Z"
         },
         "vote_a": {
-            "id": 7,
-            "vote": "Ark Angel A",
-            "total_votes": 1,
-            "date_updated": "2019-01-15T12:08:22.442Z"
-        },
-        "vote_b": {
-            "id": 7,
-            "vote": "Ark Angel B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:08:22.492Z"
-        },
-        "vote_c": {
-            "id": 7,
-            "vote": "Ark Angel C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:08:22.542Z"
-        }
-    },
-    {
-        "question": {
-            "id": 8,
-            "question": "Hello Wolverine",
-            "date_updated": "2019-01-11T13:52:14.808Z"
-        },
-        "vote_a": {
-            "id": 5,
-            "vote": "Wolverine A",
-            "total_votes": 1,
-            "date_updated": "2019-01-11T13:52:14.925Z"
-        },
-        "vote_b": {
-            "id": 5,
-            "vote": "Wolverine B",
-            "total_votes": 1,
-            "date_updated": "2019-01-11T13:52:14.975Z"
-        },
-        "vote_c": {
-            "id": 5,
-            "vote": "Wolverine C",
-            "total_votes": 3,
-            "date_updated": "2019-01-11T13:52:15.024Z"
-        }
-    },
-    {
-        "question": {
-            "id": 7,
-            "question": "Hello Logan",
-            "date_updated": "2019-01-05T11:43:55.586Z"
-        },
-        "vote_a": {
-            "id": 4,
-            "vote": "Logan A",
+            "id": 3,
+            "vote": "Wakanda a",
             "total_votes": 2,
-            "date_updated": "2019-01-05T11:43:55.702Z"
+            "date_updated": "2019-01-04T21:03:52.338Z"
         },
         "vote_b": {
-            "id": 4,
-            "vote": "Logan B",
-            "total_votes": 2,
-            "date_updated": "2019-01-05T11:43:55.752Z"
+            "id": 3,
+            "vote": "Wakanda b",
+            "total_votes": 5,
+            "date_updated": "2019-01-04T21:03:52.388Z"
         },
         "vote_c": {
-            "id": 4,
-            "vote": "Logan C",
-            "total_votes": 1,
-            "date_updated": "2019-01-05T11:43:55.802Z"
+            "id": 3,
+            "vote": "Wakanda c",
+            "total_votes": 4,
+            "date_updated": "2019-01-04T21:03:52.438Z"
         }
     }
 ]

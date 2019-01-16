@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class='content-section'>
+    {% if user.is_authenticated %}
+      <form method='POST' action='{% url 'set_all_my_questions' %}'>{% csrf_token %}
+        <fieldset>
+          <legend>Edit and update your question and votes</legend>
+          <section id='edit_all_my_questions'></section>
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Submit Edit</button>
+        </div>
+      </form>
+    {% endif %}
+  </div>
+  <script src="{% static 'js/edit_all_my_questions.js' %}"></script>
+{% endblock %}
+

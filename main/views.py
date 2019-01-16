@@ -31,6 +31,30 @@ class Set_All_My_Questions(View):
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(questions, self.__view_all_my_qs_json)
         return render(request, 'view_all_my_questions.html', {})
+    
+    def post(self, request, *args, **kwargs):
+        username = request.user
+        question_id = request.POST.get('question_id')
+        question = request.POST.get('question')
+        vote_a_id = request.POST.get('type_a')
+        vote_b_id = request.POST.get('type_b')
+        vote_c_id = request.POST.get('type_c')
+        vote_a = request.POST.get('vote_a')
+        vote_b = request.POST.get('vote_b')
+        vote_c = request.POST.get('vote_c')
+
+        if question != '':
+            Ask_A_Question_table.objects.filter(id = question_id).update(question = question)
+        if vote_a != '':
+            Vote_A_table.objects.filter(id = vote_a_id).update(vote = vote_a)
+        if vote_b != '':
+            Vote_B_table.objects.filter(id = vote_b_id).update(vote = vote_b)
+        if vote_c != '':
+            Vote_C_table.objects.filter(id = vote_c_id).update(vote = vote_c)
+        if question == '' and vote_a == '' and vote_b == '' and vote_c == '':
+            messages.warning(request, f'You did not update anything so far, you can always try again later if you want {username}')
+        messages.success(request, f'You successfully updated your question or votes {username}')
+        return redirect('set_all_my_questions')
 
 class Get_All_My_Questions(View):
     __get_json = Save_Data_To_Json()
@@ -39,6 +63,39 @@ class Get_All_My_Questions(View):
     def get(self, request, *args, **kwargs):
         get_json = self.__get_json.get_json_file(self.__view_all_my_qs_json)
         return JsonResponse(get_json, safe = False)
+    
+class Edit_All_My_Questions(View):
+    __get_json = Save_Data_To_Json()
+    __base_dir = settings.BASE_DIR
+    __edit_all_my_qs_json = 'edit_all_my_questions'
+
+    def get(self, request, *args, **kwargs):
+        to_edit = []
+        check_json = self.__base_dir + '/static/json/'+ self.__edit_all_my_qs_json +'.json'
+        get_question = Ask_A_Question_table.objects.filter(id = kwargs.get('question_id')).values('id','question','date_updated')[0]
+        vote_a = Vote_A_table.objects.filter(id = kwargs.get('vote_a')).values('id','vote','date_updated')[0]
+        context_vote_a = {'vote_type': 'type_a', 'vote': vote_a, 'vote_abc': 'vote_a',}
+        vote_b = Vote_B_table.objects.filter(id = kwargs.get('vote_b')).values('id','vote','date_updated')[0]
+        context_vote_b = {'vote_type': 'type_b', 'vote': vote_b, 'vote_abc': 'vote_b',}
+        vote_c = Vote_C_table.objects.filter(id = kwargs.get('vote_c')).values('id','vote','date_updated')[0]
+        context_vote_c = {'vote_type': 'type_c', 'vote': vote_c, 'vote_abc': 'vote_c',}
+        to_edit.append(get_question)
+        to_edit.append(context_vote_a)
+        to_edit.append(context_vote_b)
+        to_edit.append(context_vote_c)
+
+        if check_json != 0 or check_json == 0:
+            self.__get_json.save_json(to_edit, self.__edit_all_my_qs_json)
+
+        return render(request, 'edit_all_my_questions.html', {})
+
+class Get_Edit_All_My_Questions(View):
+    __get_json = Save_Data_To_Json()
+    __edit_all_my_qs_json = 'edit_all_my_questions'
+
+    def get(self, request, *args, **kwargs):
+        get_json = self.__get_json.get_json_file(self.__edit_all_my_qs_json)
+        return JsonResponse(get_json, safe = False)    
 
 class Delete(View):
     def get(self, request, *args, **kwargs): 
