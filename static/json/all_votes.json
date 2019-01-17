@@ -33,6 +33,13 @@
                 "answer": "reertetereee 1111111112332",
                 "user_id": 3,
                 "username": "lozza188"
+            },
+            {
+                "question_id": 4,
+                "answer_id": 14,
+                "answer": "lozza190 answers hello 3 ...... hello 3333333",
+                "user_id": 5,
+                "username": "lozza190"
             }
         ],
         "asked_by": "admin"
@@ -191,7 +198,15 @@
         "vote_a_id": 5,
         "vote_b_id": null,
         "vote_c_id": null,
-        "answers": [],
+        "answers": [
+            {
+                "question_id": 8,
+                "answer_id": 15,
+                "answer": "Hello WOvlerine from lozza190",
+                "user_id": 5,
+                "username": "lozza190"
+            }
+        ],
         "asked_by": "lozza187"
     },
     {
@@ -356,7 +371,7 @@
         },
         "vote_c": {
             "id": "10_c",
-            "vote": "Iceman C",
+            "vote": "Iceman CC",
             "questions_vote_id": 13,
             "user_id": 2
         },

@@ -1,7 +1,58 @@
 [
     {
+        "id": 13,
+        "question": "Hello Iceman 2",
+        "answers": {
+            "ans": null
+        },
+        "date_updated": "2019-01-17T18:54:01.195Z",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 10,
+                "vote": "Iceman A",
+                "date_updated": "2019-01-15T12:11:47.889Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 10,
+                "vote": "Iceman B",
+                "date_updated": "2019-01-15T12:11:47.972Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 10,
+                "vote": "Iceman CC",
+                "date_updated": "2019-01-15T12:11:48.023Z"
+            }
+        }
+    },
+    {
         "id": 5,
         "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+        "answers": {
+            "ans": [
+                {
+                    "id": 3,
+                    "answer": "This is my lorem",
+                    "date_updated": "2019-01-14T01:06:57.912Z"
+                },
+                {
+                    "id": 4,
+                    "answer": "This is my lorem 2",
+                    "date_updated": "2019-01-14T01:07:46.228Z"
+                },
+                {
+                    "id": 7,
+                    "answer": "This is lorem 3",
+                    "date_updated": "2019-01-14T14:13:28.340Z"
+                }
+            ]
+        },
         "date_updated": "2019-01-17T15:23:25.933Z",
         "vote_a": {
             "type": "type_a",
@@ -31,6 +82,20 @@
     {
         "id": 6,
         "question": "Hello Wakanda",
+        "answers": {
+            "ans": [
+                {
+                    "id": 8,
+                    "answer": "Hello Wakanda -- Wakanda A -- lozza190",
+                    "date_updated": "2019-01-14T15:01:17.441Z"
+                },
+                {
+                    "id": 9,
+                    "answer": "Hello Wakanda -- Wakanda AAAAAAAAA -- lozza190 --- Another answer for this questions vote",
+                    "date_updated": "2019-01-14T15:03:03.978Z"
+                }
+            ]
+        },
         "date_updated": "2019-01-17T14:26:08.219Z",
         "vote_a": {
             "type": "type_a",

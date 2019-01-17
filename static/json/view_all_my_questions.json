@@ -1,152 +1,52 @@
 [
     {
         "question": {
-            "id": 13,
-            "question": "Hello Iceman 2",
-            "date_updated": "2019-01-15T12:11:47.764Z"
-        },
-        "vote_a": {
-            "id": 10,
-            "vote": "Iceman A",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:47.889Z"
-        },
-        "vote_b": {
-            "id": 10,
-            "vote": "Iceman B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:47.972Z"
-        },
-        "vote_c": {
-            "id": 10,
-            "vote": "Iceman C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:11:48.023Z"
-        }
-    },
-    {
-        "question": {
-            "id": 12,
-            "question": "Hello Cyclops",
-            "date_updated": "2019-01-15T12:10:37.860Z"
-        },
-        "vote_a": {
             "id": 9,
-            "vote": "Cyclops A",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:37.950Z"
-        },
-        "vote_b": {
-            "id": 9,
-            "vote": "Cyclops B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:37.992Z"
-        },
-        "vote_c": {
-            "id": 9,
-            "vote": "Cyclops C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:38.034Z"
-        }
-    },
-    {
-        "question": {
-            "id": 11,
-            "question": "Hello Storm",
-            "date_updated": "2019-01-15T12:10:01.964Z"
+            "question": "Asking a Question 1",
+            "date_updated": "2019-01-14T16:54:11.542Z"
         },
         "vote_a": {
-            "id": 8,
-            "vote": "Storm A",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.203Z"
-        },
-        "vote_b": {
-            "id": 8,
-            "vote": "Storm B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.286Z"
-        },
-        "vote_c": {
-            "id": 8,
-            "vote": "Storm C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:10:02.328Z"
-        }
-    },
-    {
-        "question": {
-            "id": 10,
-            "question": "Hello Ark Angel",
-            "date_updated": "2019-01-15T12:08:22.325Z"
-        },
-        "vote_a": {
-            "id": 7,
-            "vote": "Ark Angel A",
-            "total_votes": 1,
-            "date_updated": "2019-01-15T12:08:22.442Z"
-        },
-        "vote_b": {
-            "id": 7,
-            "vote": "Ark Angel B",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:08:22.492Z"
-        },
-        "vote_c": {
-            "id": 7,
-            "vote": "Ark Angel C",
-            "total_votes": 0,
-            "date_updated": "2019-01-15T12:08:22.542Z"
-        }
-    },
-    {
-        "question": {
-            "id": 8,
-            "question": "Hello Wolverine",
-            "date_updated": "2019-01-11T13:52:14.808Z"
-        },
-        "vote_a": {
-            "id": 5,
-            "vote": "Wolverine A",
-            "total_votes": 1,
-            "date_updated": "2019-01-11T13:52:14.925Z"
-        },
-        "vote_b": {
-            "id": 5,
-            "vote": "Wolverine B",
-            "total_votes": 1,
-            "date_updated": "2019-01-11T13:52:14.975Z"
-        },
-        "vote_c": {
-            "id": 5,
-            "vote": "Wolverine C",
-            "total_votes": 3,
-            "date_updated": "2019-01-11T13:52:15.024Z"
-        }
-    },
-    {
-        "question": {
-            "id": 7,
-            "question": "Hello Logan",
-            "date_updated": "2019-01-05T11:43:55.586Z"
-        },
-        "vote_a": {
-            "id": 4,
-            "vote": "Logan A",
+            "id": 6,
+            "vote": "Question A",
             "total_votes": 2,
-            "date_updated": "2019-01-05T11:43:55.702Z"
+            "date_updated": "2019-01-14T16:54:11.670Z"
         },
         "vote_b": {
-            "id": 4,
-            "vote": "Logan B",
-            "total_votes": 2,
-            "date_updated": "2019-01-05T11:43:55.752Z"
+            "id": 6,
+            "vote": "Question B",
+            "total_votes": 0,
+            "date_updated": "2019-01-14T16:54:11.712Z"
         },
         "vote_c": {
-            "id": 4,
-            "vote": "Logan C",
+            "id": 6,
+            "vote": "Question C",
+            "total_votes": 0,
+            "date_updated": "2019-01-14T16:54:11.754Z"
+        }
+    },
+    {
+        "question": {
+            "id": 5,
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+            "date_updated": "2019-01-03T19:40:22.755Z"
+        },
+        "vote_a": {
+            "id": 2,
+            "vote": "In vulputate convallis libero ac imperdiet.",
+            "total_votes": 2,
+            "date_updated": "2019-01-03T19:40:22.892Z"
+        },
+        "vote_b": {
+            "id": 2,
+            "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
             "total_votes": 1,
-            "date_updated": "2019-01-05T11:43:55.802Z"
+            "date_updated": "2019-01-03T19:40:22.942Z"
+        },
+        "vote_c": {
+            "id": 2,
+            "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
+            "total_votes": 4,
+            "date_updated": "2019-01-03T19:40:23.042Z"
         }
     }
 ]

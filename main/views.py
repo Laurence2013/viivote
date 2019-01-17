@@ -37,7 +37,18 @@ class Get_Bookmarks(View):
         check_json = self.__base_dir + '/static/json/'+ self.__get_bookmarks_json +'.json'
         get_question_id = Bookmark_table.objects.filter(user_id_id = user_id).values('question_id_id','date_updated').order_by('-date_updated')
         for get_qs in get_question_id:
+            answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
+            answers_ids = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id')).values('answer_id_id')
+
+            if not answers_ids:
+                context_ans = {'ans': None,}
+            if answers_ids:
+                for answers_id in answers_ids:
+                    get_ans = Answer_table.objects.filter(id = answers_id.get('answer_id_id')).values('id','answer','date_updated')[0]
+                    answers.append(get_ans)
+                    context_ans = {'ans': answers,}
+
             qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id')
             votes_a_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_a_id')[0]
             votes_b_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_b_id')[0]
@@ -51,6 +62,7 @@ class Get_Bookmarks(View):
             context = {
                 'id': question.get('id'),
                 'question': question.get('question'),
+                'answers': context_ans,
                 'date_updated': get_qs.get('date_updated'),
                 'vote_a': context_vote_a,
                 'vote_b': context_vote_b,

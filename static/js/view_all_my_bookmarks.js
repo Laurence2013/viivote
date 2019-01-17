@@ -39,6 +39,15 @@
         html += '<li>'+ results[result].vote_a.vote_a.vote +'</li>';
         html += '<li>'+ results[result].vote_b.vote_b.vote +'</li>';
         html += '<li>'+ results[result].vote_c.vote_c.vote +'</li>';
+        if(results[result].answers.ans == null){
+          html += '<b>All answers</b>';
+          html += '<li>No answers were found so far</li>';
+        }else{
+          html += '<b>All answers</b>';
+          Object.values(results[result].answers.ans).forEach(function(ans){
+            html += '<li>'+ ans.answer +'</li>';
+          });
+        }
         html += '<small><a href="'+ base_url + del_bookmark + '/' + results[result].id +'">Delete from bookmark</a></small>';
         html += '<hr>';
       }
