@@ -1,0 +1,86 @@
+[
+    {
+        "id": 4,
+        "question": "hello 3",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 1,
+                "vote": "a1",
+                "date_updated": "2019-01-03T18:56:52.273Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 1,
+                "vote": "b1",
+                "date_updated": "2019-01-03T18:56:52.341Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 1,
+                "vote": "c1",
+                "date_updated": "2019-01-03T18:56:52.391Z"
+            }
+        }
+    },
+    {
+        "id": 6,
+        "question": "Hello Wakanda",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 3,
+                "vote": "Wakanda a",
+                "date_updated": "2019-01-04T21:03:52.338Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 3,
+                "vote": "Wakanda b",
+                "date_updated": "2019-01-04T21:03:52.388Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 3,
+                "vote": "Wakanda c",
+                "date_updated": "2019-01-04T21:03:52.438Z"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 2,
+                "vote": "In vulputate convallis libero ac imperdiet.",
+                "date_updated": "2019-01-03T19:40:22.892Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 2,
+                "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
+                "date_updated": "2019-01-03T19:40:22.942Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 2,
+                "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
+                "date_updated": "2019-01-03T19:40:23.042Z"
+            }
+        }
+    }
+]

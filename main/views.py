@@ -14,9 +14,59 @@ from main.has_voted_per_question import Has_Voted_Per_Question
 from main.view_all_my_questionss import View_All_My_Questionss
 from django.contrib import messages
 
-class My_Bookmarks(View):
+class Bookmark(View):
     def get(self, request, *args, **kwargs): 
-        return HttpResponse('My bookmarks')
+        user_id = request.user.id
+        username = request.user
+        question_id = kwargs.get('question_id')
+        if Bookmark_table.objects.filter(user_id_id = user_id, question_id_id = question_id).exists():
+            messages.warning(request, f'This already exist in your bookmark {username}')
+            return redirect('main')
+        Bookmark_table.objects.create(user_id_id = user_id, question_id_id = question_id).save()
+        messages.success(request, f'You have just added to your bookmarks {username}')
+        return redirect('main')
+
+class Get_Bookmarks(View):
+    __get_json = Save_Data_To_Json()
+    __base_dir = settings.BASE_DIR
+    __get_bookmarks_json = 'get_bookmarks'
+
+    def get(self, request, *args, **kwargs):
+        bookmarks = []
+        user_id = request.user.id
+        check_json = self.__base_dir + '/static/json/'+ self.__get_bookmarks_json +'.json'
+        get_question_id = Bookmark_table.objects.filter(user_id_id = user_id).values('question_id_id')
+        for get_qs in get_question_id:
+            question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
+            qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id')
+            votes_a_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_a_id')[0]
+            votes_b_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_b_id')[0]
+            votes_c_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_c_id')[0]
+            votes_a = Vote_A_table.objects.filter(id = votes_a_id.get('vote_a_id')).values('id','vote','date_updated')[0]
+            context_vote_a = {'type': 'type_a', 'vote_a': votes_a,}
+            votes_b = Vote_B_table.objects.filter(id = votes_b_id.get('vote_b_id')).values('id','vote','date_updated')[0]
+            context_vote_b = {'type': 'type_b', 'vote_b': votes_b,}
+            votes_c = Vote_C_table.objects.filter(id = votes_c_id.get('vote_c_id')).values('id','vote','date_updated')[0]
+            context_vote_c = {'type': 'type_c', 'vote_c': votes_c,}
+            context = {
+                'id': question.get('id'),
+                'question': question.get('question'),
+                'vote_a': context_vote_a,
+                'vote_b': context_vote_b,
+                'vote_c': context_vote_c,
+            }
+            bookmarks.append(context)  
+        if check_json != 0 or check_json == 0:
+            self.__get_json.save_json(bookmarks, self.__get_bookmarks_json)
+        return render(request, 'view_all_my_bookmarks.html', {})
+
+class View_My_Bookmarks(View):
+    __get_json = Save_Data_To_Json()
+    __view_my_bookmarks_json = 'get_bookmarks'
+
+    def get(self, request, *args, **kwargs):
+        get_json = self.__get_json.get_json_file(self.__view_my_bookmarks_json)
+        return JsonResponse(get_json, safe = False)
 
 class Set_All_My_Questions(View):
     __get_json = Save_Data_To_Json()

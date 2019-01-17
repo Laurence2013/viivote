@@ -20,6 +20,7 @@
   let base_url = getBaseUrl();
   let answer_vote = 'answer_vote';
   let edit = 'edit';
+  let bookmark = 'bookmark';
   let del_ete = 'delete'
 
   http.onreadystatechange = function(){
@@ -31,7 +32,7 @@
       Object.values(results).forEach(function(qs){
         html += '<ul>';
         html += '<div class="results_vote">';
-        html += '<li><b>Question: </b>'+ qs.question +'</li>';
+        html += '<li><b>Question: </b>'+ qs.question +' <small>asked by</small> '+ qs.asked_by +' | <small><a href="'+ base_url + bookmark + '/' +qs.question_id +'">Bookmark</a></small></li>';
         html += '<li><b>Vote A: </b><input type="radio" name="'+ qs.vote_a.questions_vote_id +'" value="'+ qs.vote_a.id +'">'+ qs.vote_a.vote +'</li>';
         html += '<li><b>Vote B: </b><input type="radio" name="'+ qs.vote_b.questions_vote_id +'" value="'+ qs.vote_b.id +'">'+ qs.vote_b.vote +'</li>';
         html += '<li><b>Vote C: </b><input type="radio" name="'+ qs.vote_c.questions_vote_id +'" value="'+ qs.vote_c.id +'">'+ qs.vote_c.vote +'</li>';

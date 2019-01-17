@@ -24,7 +24,9 @@ urlpatterns = [
     path('main/set_all_my_questions/<int:question_id>/<int:vote_a>/<int:vote_b>/<int:vote_c>/', Edit_All_My_Questions.as_view(), name = 'edit_all_my_questions'),
     path('main/set_all_my_questions/<int:question_id>/<int:vote_a>/<int:vote_b>/<int:vote_c>/get_edit_all_my_questions', Get_Edit_All_My_Questions.as_view(), name = 'get_edit_all_my_questions'),
     
-    path('main/my_bookmarks/', My_Bookmarks.as_view(), name = 'my_bookmarks'),
+    path('main/bookmark/<int:question_id>/', Bookmark.as_view(), name = 'bookmark'),
+    path('main/get_bookmarks/', Get_Bookmarks.as_view(), name = 'get_bookmarks'),
+    path('main/get_bookmarks/view_my_bookmarks/', View_My_Bookmarks.as_view(), name = 'view_my_bookmarks'),
 
     path('main/answer_vote/', Answer_Vote.as_view(), name = 'answer_vote'),
     path('main/answer_vote/<slug:question_id>/<slug:vote_type>/<slug:vote>/', Answer_Vote.as_view(), name = 'answer_vote'),
