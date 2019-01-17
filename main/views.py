@@ -295,7 +295,7 @@ class Main(View):
             except IndexError as e:
                 pass #print(e) save to log eventually
             
-            get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question')
+            get_q = Ask_A_Question_table.objects.filter(id = get_qs).values_list('id','question') 
             for v in range(0,len(get_q)):
                 get_vote_ids = Votes_table.objects.filter(id = qv).values_list('vote_a_id','vote_b_id','vote_c_id')
                 vote_a = Vote_A_table.objects.filter(id = get_vote_ids[0][0]).values_list('id','vote')[0]
@@ -317,6 +317,9 @@ class Main(View):
         return context_list
 
     def __get_context(self, qs_answers, get_q, user_id, con_vote_a, con_vote_b, con_vote_c, T_F, v_type, v_a, v_b, v_c):
+        get_q_id = Ask_A_Question_table.objects.get(id = get_q[0][0])
+        get_user_id = get_q_id.user_questions_table_set.values('user_id_id')[0]
+        get_username = User.objects.filter(id = get_user_id.get('user_id_id')).values('username')[0]
         group_ans = []
         context = {
             'user_id': user_id,
@@ -331,6 +334,7 @@ class Main(View):
             'vote_b_id': v_b,
             'vote_c_id': v_c,
             'answers': group_ans,
+            'asked_by': get_username.get('username'),
         }        
         for ans in range(0,len(qs_answers)):
             if get_q[0][0] == qs_answers[ans][0]:

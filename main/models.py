@@ -146,3 +146,12 @@ class User_Questions_Votes_Answers_table(models.Model):
 
     class Meta:
         verbose_name_plural = 'User and Questions and Answers'
+
+class Bookmark_table(models.Model):
+    user_id = models.ForeignKey(User, on_delete = models.CASCADE, blank = False)
+    question_id = models.ForeignKey(Ask_A_Question_table, on_delete = models.CASCADE, blank = False)
+    date_updated = models.DateTimeField(auto_now_add = True)
+
+    class Meta:
+        verbose_name_plural = 'All bookmarked questions from a user'
+
