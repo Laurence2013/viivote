@@ -26,6 +26,7 @@ urlpatterns = [
     
     path('main/bookmark/<int:question_id>/', Bookmark.as_view(), name = 'bookmark'),
     path('main/get_bookmarks/', Get_Bookmarks.as_view(), name = 'get_bookmarks'),
+    path('main/delete_bookmark/<int:question_id>', Delete_Bookmark.as_view(), name = 'delete_bookmark'),
     path('main/get_bookmarks/view_my_bookmarks/', View_My_Bookmarks.as_view(), name = 'view_my_bookmarks'),
 
     path('main/answer_vote/', Answer_Vote.as_view(), name = 'answer_vote'),

@@ -35,7 +35,7 @@ class Get_Bookmarks(View):
         bookmarks = []
         user_id = request.user.id
         check_json = self.__base_dir + '/static/json/'+ self.__get_bookmarks_json +'.json'
-        get_question_id = Bookmark_table.objects.filter(user_id_id = user_id).values('question_id_id')
+        get_question_id = Bookmark_table.objects.filter(user_id_id = user_id).values('question_id_id','date_updated').order_by('-date_updated')
         for get_qs in get_question_id:
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
             qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id')
@@ -51,6 +51,7 @@ class Get_Bookmarks(View):
             context = {
                 'id': question.get('id'),
                 'question': question.get('question'),
+                'date_updated': get_qs.get('date_updated'),
                 'vote_a': context_vote_a,
                 'vote_b': context_vote_b,
                 'vote_c': context_vote_c,
@@ -67,6 +68,15 @@ class View_My_Bookmarks(View):
     def get(self, request, *args, **kwargs):
         get_json = self.__get_json.get_json_file(self.__view_my_bookmarks_json)
         return JsonResponse(get_json, safe = False)
+
+class Delete_Bookmark(View):
+    def get(self, request, *args, **kwargs):
+        user_id = request.user.id
+        username = request.user
+        question_id = kwargs.get('question_id')
+        Bookmark_table.objects.filter(question_id = question_id).delete()
+        messages.success(request, f'You successfully deleted a bookmark {username}')
+        return redirect('get_bookmarks')
 
 class Set_All_My_Questions(View):
     __get_json = Save_Data_To_Json()
