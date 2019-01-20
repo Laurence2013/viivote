@@ -34,7 +34,7 @@
           return day + '/' + month + '/' + year;
         }; 
         html += '<b>Question </b> | <small>'+ new_date_format(date_updatedd) +'</small>';
-        html += '<li>'+ results[result].question +'</li>';
+        html += '<li>'+ results[result].question +' | <small>asked by</small> '+ results[result].username +'</li>';
         html += '<b>Votes</b>';
         html += '<li>'+ results[result].vote_a.vote_a.vote +'</li>';
         html += '<li>'+ results[result].vote_b.vote_b.vote +'</li>';

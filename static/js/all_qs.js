@@ -61,7 +61,7 @@
         if(qs.has_voted === false){
           html += '<button class="btn btn-outline-info" type="submit">Vote</button>';
         }else{
-          html += '<b>You have already voted </b>';
+          html += '<b>You have already voted - You voted for '+ qs.vote_type.toUpperCase(); +'</b>';
           if(qs.vote_type){
             let vote_type = qs.vote_type;
             if(qs.vote_a_id){ var vote = qs.vote_a_id; }

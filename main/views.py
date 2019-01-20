@@ -39,8 +39,9 @@ class Get_Bookmarks(View):
         for get_qs in get_question_id:
             answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
-            answers_ids = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id')).values('answer_id_id')
-
+            get_user_id = User_Questions_table.objects.filter(question_id_id = question.get('id')).values('user_id_id')[0]
+            get_username = User.objects.filter(id = get_user_id.get('user_id_id')).values('username')[0]
+            answers_ids = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id')).values('answer_id_id', 'user_id_id')
             if not answers_ids:
                 context_ans = {'ans': None,}
             if answers_ids:
@@ -49,7 +50,7 @@ class Get_Bookmarks(View):
                     answers.append(get_ans)
                     context_ans = {'ans': answers,}
 
-            qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id')
+            qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id', 'question_id_id')
             votes_a_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_a_id')[0]
             votes_b_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_b_id')[0]
             votes_c_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_c_id')[0]
@@ -62,6 +63,7 @@ class Get_Bookmarks(View):
             context = {
                 'id': question.get('id'),
                 'question': question.get('question'),
+                'username': get_username.get('username'),
                 'answers': context_ans,
                 'date_updated': get_qs.get('date_updated'),
                 'vote_a': context_vote_a,
@@ -253,16 +255,17 @@ class View_All_My_Votes(View):
     __get_json = Save_Data_To_Json()
     __base_dir = settings.BASE_DIR
     __all_user_votes_json = 'all_user_votes'
+    __pp = pprint.PrettyPrinter(indent = 3)
 
     def get(self, request, *args, **kwargs):
         check_json = self.__base_dir + '/static/json/'+ self.__all_user_votes_json +'.json'
         all_qs_vs = []
 
         user_id = request.user.id
-        user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id')
-        user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id')
-        user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id')
-        
+        user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id','date_updated')
+        user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id','date_updated')
+        user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id','date_updated')
+ 
         from_votes_table_a = View_All_My_Votess(user_vote_a)
         get_votes_a_table_ids = from_votes_table_a.get_from_votes_type('a')
         get_qs_with_its_vote_a = from_votes_table_a.get_from_questions_votes(get_votes_a_table_ids)

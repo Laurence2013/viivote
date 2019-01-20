@@ -11,7 +11,8 @@ class View_All_My_Votess:
                 votes_table_ids = (Votes_table.objects.filter(vote_a_id = vote_type[0]).values_list('id','vote_a_id'))[0]
                 context_a = {
                     'id': votes_table_ids[0],
-                    'vote_a': votes_table_ids[1]
+                    'vote_a': votes_table_ids[1],
+                    'date_voted': vote_type[1],
                 }
                 votes_table_id.append(context_a)
         if vote_type == 'b':
@@ -19,7 +20,8 @@ class View_All_My_Votess:
                 votes_table_ids = (Votes_table.objects.filter(vote_b_id = vote_type[0]).values_list('id','vote_b_id'))[0]
                 context_a = {
                     'id': votes_table_ids[0],
-                    'vote_b': votes_table_ids[1]
+                    'vote_b': votes_table_ids[1],
+                    'date_voted': vote_type[1],
                 }
                 votes_table_id.append(context_a)
         if vote_type == 'c':
@@ -27,7 +29,8 @@ class View_All_My_Votess:
                 votes_table_ids = (Votes_table.objects.filter(vote_c_id = vote_type[0]).values_list('id','vote_c_id'))[0]
                 context_a = {
                     'id': votes_table_ids[0],
-                    'vote_c': votes_table_ids[1]
+                    'vote_c': votes_table_ids[1],
+                    'date_voted': vote_type[1],
                 }
                 votes_table_id.append(context_a)
         return votes_table_id

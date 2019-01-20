@@ -1,64 +1,47 @@
 [
     [
         {
-            "id": 5,
-            "vote_a": 5,
-            "question_id": 8,
-            "question": "Hello Wolverine",
-            "vote": "Wolverine A"
+            "id": 3,
+            "vote_a": 3,
+            "date_voted": "2019-01-14T15:00:23.093Z",
+            "question_id": 6,
+            "question": "Hello Wakanda",
+            "vote": "Wakanda a"
         },
         {
             "id": 6,
             "vote_a": 6,
+            "date_voted": "2019-01-14T16:54:50.962Z",
             "question_id": 9,
             "question": "Asking a Question 1",
             "vote": "Question A"
-        },
-        {
-            "id": 7,
-            "vote_a": 7,
-            "question_id": 10,
-            "question": "Hello Ark Angel",
-            "vote": "Ark Angel A"
         }
     ],
+    [],
     [
         {
-            "id": 1,
-            "vote_b": 1,
-            "question_id": 4,
-            "question": "hello 3",
-            "vote": "b1"
-        },
-        {
-            "id": 3,
-            "vote_b": 3,
-            "question_id": 6,
-            "question": "Hello Wakanda",
-            "vote": "Wakanda b"
+            "id": 2,
+            "vote_c": 2,
+            "date_voted": "2019-01-14T01:07:36.761Z",
+            "question_id": 5,
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+            "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae."
         },
         {
             "id": 1,
-            "vote_b": 1,
+            "vote_c": 1,
+            "date_voted": "2019-01-17T17:22:18.379Z",
             "question_id": 4,
             "question": "hello 3",
-            "vote": "b1"
+            "vote": "c1"
         },
         {
-            "id": 3,
-            "vote_b": 3,
-            "question_id": 6,
-            "question": "Hello Wakanda",
-            "vote": "Wakanda b"
-        }
-    ],
-    [
-        {
-            "id": 4,
-            "vote_c": 4,
-            "question_id": 7,
-            "question": "Hello Logan",
-            "vote": "Logan C"
+            "id": 5,
+            "vote_c": 5,
+            "date_voted": "2019-01-17T18:22:06.234Z",
+            "question_id": 8,
+            "question": "Hello Wolverine",
+            "vote": "Wolverine C"
         }
     ]
 ]
