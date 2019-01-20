@@ -46,8 +46,12 @@ class Get_Bookmarks(View):
                 context_ans = {'ans': None,}
             if answers_ids:
                 for answers_id in answers_ids:
+                    get_ans_user = User.objects.filter(id = answers_id.get('user_id_id')).values('id','username')[0]
                     get_ans = Answer_table.objects.filter(id = answers_id.get('answer_id_id')).values('id','answer','date_updated')[0]
                     answers.append(get_ans)
+                    answers.append(get_ans_user)
+                    #ans_ans_by = get_ans, get_ans_user
+                    #answers.append(ans_ans_by)
                     context_ans = {'ans': answers,}
 
             qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id', 'question_id_id')

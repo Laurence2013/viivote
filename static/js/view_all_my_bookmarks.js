@@ -44,8 +44,11 @@
           html += '<li>No answers were found so far</li>';
         }else{
           html += '<b>All answers</b>';
-          Object.values(results[result].answers.ans).forEach(function(ans){
-            html += '<li>'+ ans.answer +'</li>';
+          Object.values(results[result].answers.ans).forEach(function(anss){
+            if(anss.answer !== undefined){
+              console.log(anss);
+              html += '<li>'+ anss.answer +' | <small>answered by </small></li>';
+            }
           });
         }
         html += '<small><a href="'+ base_url + del_bookmark + '/' + results[result].id +'">Delete from bookmark</a></small>';

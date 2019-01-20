@@ -1,47 +1,23 @@
 [
-    [
-        {
-            "id": 3,
-            "vote_a": 3,
-            "date_voted": "2019-01-14T15:00:23.093Z",
-            "question_id": 6,
-            "question": "Hello Wakanda",
-            "vote": "Wakanda a"
-        },
-        {
-            "id": 6,
-            "vote_a": 6,
-            "date_voted": "2019-01-14T16:54:50.962Z",
-            "question_id": 9,
-            "question": "Asking a Question 1",
-            "vote": "Question A"
-        }
-    ],
     [],
     [
         {
-            "id": 2,
-            "vote_c": 2,
-            "date_voted": "2019-01-14T01:07:36.761Z",
-            "question_id": 5,
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
-            "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae."
-        },
+            "id": 12,
+            "vote_b": 12,
+            "date_voted": "2019-01-20T14:47:18.341Z",
+            "question_id": 15,
+            "question": "Lozza189 asking his or her first question",
+            "vote": "189 - B"
+        }
+    ],
+    [
         {
-            "id": 1,
-            "vote_c": 1,
-            "date_voted": "2019-01-17T17:22:18.379Z",
-            "question_id": 4,
-            "question": "hello 3",
-            "vote": "c1"
-        },
-        {
-            "id": 5,
-            "vote_c": 5,
-            "date_voted": "2019-01-17T18:22:06.234Z",
-            "question_id": 8,
-            "question": "Hello Wolverine",
-            "vote": "Wolverine C"
+            "id": 15,
+            "vote_c": 15,
+            "date_voted": "2019-01-20T14:46:56.625Z",
+            "question_id": 18,
+            "question": "189 third question",
+            "vote": "third - C"
         }
     ]
 ]
