@@ -37,9 +37,9 @@
         html += '<b>Question </b> | <small>'+ new_date_format(date_updatedd) +'</small>';
         html += '<li>'+ results[result].question +' | <small>asked by</small> '+ results[result].username +'</li>';
         html += '<b>Votes</b>';
-        html += '<li>'+ results[result].vote_a.vote_a.vote +'</li>';
-        html += '<li>'+ results[result].vote_b.vote_b.vote +'</li>';
-        html += '<li>'+ results[result].vote_c.vote_c.vote +'</li>';
+        html += '<li><b>Vote A: </b><input type="radio" name="" value=""> '+ results[result].vote_a.vote_a.vote +'</li>';
+        html += '<li><b>Vote B: </b><input type="radio" name="" value=""> '+ results[result].vote_b.vote_b.vote +'</li>';
+        html += '<li><b>Vote C: </b><input type="radio" name="" value=""> '+ results[result].vote_c.vote_c.vote +'</li>';
         if(results[result].answers.ans == null){
           html += '<b>All answers</b>';
           html += '<li>No answers were found so far</li>';

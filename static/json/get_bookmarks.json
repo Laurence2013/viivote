@@ -29,7 +29,7 @@
                 ]
             ]
         },
-        "date_updated": "2019-01-21T15:40:25.871Z",
+        "date_updated": "2019-01-21T16:24:01.463Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
@@ -55,219 +55,43 @@
             }
         },
         "has_voted": {
-            "has_voted": false
-        }
-    },
-    {
-        "id": 9,
-        "question": "Asking a Question 1",
-        "username": "lozza190",
-        "answers": {
-            "ans": [
-                [
-                    {
-                        "id": 10,
-                        "answer": "Asking question answer 1",
-                        "date_updated": "2019-01-14T16:55:14.042Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 11,
-                        "answer": "Lorem example by lozza187 (A)",
-                        "date_updated": "2019-01-15T11:06:50.672Z"
-                    },
-                    {
-                        "id": 2,
-                        "username": "lozza187"
-                    }
-                ]
-            ]
-        },
-        "date_updated": "2019-01-21T15:34:56.276Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 6,
-                "vote": "Question A",
-                "date_updated": "2019-01-14T16:54:11.670Z"
-            }
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 6,
-                "vote": "Question B",
-                "date_updated": "2019-01-14T16:54:11.712Z"
-            }
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 6,
-                "vote": "Question C",
-                "date_updated": "2019-01-14T16:54:11.754Z"
-            }
-        },
-        "has_voted": {
-            "has_voted": false
-        }
-    },
-    {
-        "id": 15,
-        "question": "Lozza189 asking his or her first question",
-        "username": "lozza189",
-        "answers": {
-            "ans": null
-        },
-        "date_updated": "2019-01-21T15:16:33.080Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 12,
-                "vote": "189 - A",
-                "date_updated": "2019-01-20T12:36:08.869Z"
-            }
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 12,
-                "vote": "189 - B",
-                "date_updated": "2019-01-20T12:36:08.919Z"
-            }
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 12,
-                "vote": "CCCDCCC",
-                "date_updated": "2019-01-20T12:36:08.969Z"
-            }
-        },
-        "has_voted": {
             "has_voted": true
         }
     },
     {
-        "id": 17,
-        "question": "189 second question",
-        "username": "lozza189",
+        "id": 13,
+        "question": "Hello Iceman 2",
+        "username": "lozza187",
         "answers": {
             "ans": null
         },
-        "date_updated": "2019-01-21T14:45:29.763Z",
+        "date_updated": "2019-01-17T14:27:06.054Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
-                "id": 14,
-                "vote": "second - A",
-                "date_updated": "2019-01-20T13:36:18.149Z"
+                "id": 10,
+                "vote": "Iceman A",
+                "date_updated": "2019-01-15T12:11:47.889Z"
             }
         },
         "vote_b": {
             "type": "type_b",
             "vote_b": {
-                "id": 14,
-                "vote": "second - B",
-                "date_updated": "2019-01-20T13:36:18.250Z"
+                "id": 10,
+                "vote": "Iceman B",
+                "date_updated": "2019-01-15T12:11:47.972Z"
             }
         },
         "vote_c": {
             "type": "type_c",
             "vote_c": {
-                "id": 14,
-                "vote": "second - C",
-                "date_updated": "2019-01-20T13:36:18.350Z"
+                "id": 10,
+                "vote": "Iceman CC",
+                "date_updated": "2019-01-15T12:11:48.023Z"
             }
         },
         "has_voted": {
             "has_voted": false
-        }
-    },
-    {
-        "id": 6,
-        "question": "Hello Wakanda",
-        "username": "lozza188",
-        "answers": {
-            "ans": [
-                [
-                    {
-                        "id": 8,
-                        "answer": "Hello Wakanda -- Wakanda A -- lozza190",
-                        "date_updated": "2019-01-14T15:01:17.441Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 9,
-                        "answer": "Hello Wakanda -- Wakanda AAAAAAAAA -- lozza190 --- Another answer for this questions vote",
-                        "date_updated": "2019-01-14T15:03:03.978Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 16,
-                        "answer": "Lorem Wakanda answered by lozza187 - First time",
-                        "date_updated": "2019-01-18T14:37:18.422Z"
-                    },
-                    {
-                        "id": 2,
-                        "username": "lozza187"
-                    }
-                ],
-                [
-                    {
-                        "id": 19,
-                        "answer": "lozza191 says Hello Wakanda - Voted A",
-                        "date_updated": "2019-01-21T14:11:20.484Z"
-                    },
-                    {
-                        "id": 6,
-                        "username": "lozza191"
-                    }
-                ]
-            ]
-        },
-        "date_updated": "2019-01-20T14:46:17.672Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 3,
-                "vote": "Wakanda a",
-                "date_updated": "2019-01-04T21:03:52.338Z"
-            }
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 3,
-                "vote": "Wakanda b",
-                "date_updated": "2019-01-04T21:03:52.388Z"
-            }
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 3,
-                "vote": "Wakanda c",
-                "date_updated": "2019-01-04T21:03:52.438Z"
-            }
-        },
-        "has_voted": {
-            "has_voted": true
         }
     }
 ]
