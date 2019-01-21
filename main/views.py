@@ -39,7 +39,7 @@ class Get_Bookmarks(View):
         for get_qs in get_question_id:
             answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
-            has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id')).count()
+            has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).count()
 
             if has_voted == 0:
                 context_has_voted = {'has_voted': False,}

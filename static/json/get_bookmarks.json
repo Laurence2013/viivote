@@ -1,5 +1,123 @@
 [
     {
+        "id": 4,
+        "question": "hello 3",
+        "username": "admin",
+        "answers": {
+            "ans": [
+                [
+                    {
+                        "id": 12,
+                        "answer": "reertetereee 1111111112332",
+                        "date_updated": "2019-01-15T11:57:23.378Z"
+                    },
+                    {
+                        "id": 3,
+                        "username": "lozza188"
+                    }
+                ],
+                [
+                    {
+                        "id": 14,
+                        "answer": "lozza190 answers hello 3 ...... hello 3333333",
+                        "date_updated": "2019-01-17T17:22:36.184Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ]
+            ]
+        },
+        "date_updated": "2019-01-21T15:40:25.871Z",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 1,
+                "vote": "a1",
+                "date_updated": "2019-01-03T18:56:52.273Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 1,
+                "vote": "b1",
+                "date_updated": "2019-01-03T18:56:52.341Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 1,
+                "vote": "c1",
+                "date_updated": "2019-01-03T18:56:52.391Z"
+            }
+        },
+        "has_voted": {
+            "has_voted": false
+        }
+    },
+    {
+        "id": 9,
+        "question": "Asking a Question 1",
+        "username": "lozza190",
+        "answers": {
+            "ans": [
+                [
+                    {
+                        "id": 10,
+                        "answer": "Asking question answer 1",
+                        "date_updated": "2019-01-14T16:55:14.042Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ],
+                [
+                    {
+                        "id": 11,
+                        "answer": "Lorem example by lozza187 (A)",
+                        "date_updated": "2019-01-15T11:06:50.672Z"
+                    },
+                    {
+                        "id": 2,
+                        "username": "lozza187"
+                    }
+                ]
+            ]
+        },
+        "date_updated": "2019-01-21T15:34:56.276Z",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 6,
+                "vote": "Question A",
+                "date_updated": "2019-01-14T16:54:11.670Z"
+            }
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 6,
+                "vote": "Question B",
+                "date_updated": "2019-01-14T16:54:11.712Z"
+            }
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 6,
+                "vote": "Question C",
+                "date_updated": "2019-01-14T16:54:11.754Z"
+            }
+        },
+        "has_voted": {
+            "has_voted": false
+        }
+    },
+    {
         "id": 15,
         "question": "Lozza189 asking his or her first question",
         "username": "lozza189",
