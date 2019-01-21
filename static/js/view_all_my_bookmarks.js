@@ -15,6 +15,7 @@
   }
   let base_url = getBaseUrl();
   let del_bookmark = 'delete_bookmark';
+  let answer_vote = 'answer_vote';
 
   let http = new XMLHttpRequest();
   http.onreadystatechange = function(){
@@ -45,11 +46,13 @@
         }else{
           html += '<b>All answers</b>';
           Object.values(results[result].answers.ans).forEach(function(anss){
-            if(anss.answer !== undefined){
-              console.log(anss);
-              html += '<li>'+ anss.answer +' | <small>answered by </small></li>';
-            }
+            html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +'</small></li>';
           });
+        }
+        if(results[result].has_voted.has_voted === true){
+          html += '<p><a href="'+ base_url + answer_vote + '/' + results[result].id +'">Click here to answer your vote</a></p>'; 
+        }else{
+          html += '<p><button class="btn btn-outline-info" type="submit">Vote</button></p>';
         }
         html += '<small><a href="'+ base_url + del_bookmark + '/' + results[result].id +'">Delete from bookmark</a></small>';
         html += '<hr>';

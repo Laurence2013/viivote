@@ -417,7 +417,7 @@
     },
     {
         "user_id": 6,
-        "has_voted": false,
+        "has_voted": true,
         "question_id": 6,
         "question": "Hello Wakanda",
         "date": "2019-01-04T21:03:52.225Z",
@@ -439,8 +439,8 @@
             "questions_vote_id": 6,
             "user_id": 6
         },
-        "vote_type": null,
-        "vote_a_id": null,
+        "vote_type": "a",
+        "vote_a_id": 3,
         "vote_b_id": null,
         "vote_c_id": null,
         "answers": [
@@ -467,6 +467,14 @@
                 "answer": "Lorem Wakanda answered by lozza187 - First time",
                 "user_id": 2,
                 "username": "lozza187"
+            },
+            {
+                "question_id": 6,
+                "answer_id": 19,
+                "date_updated": "2019-01-21T14:11:20.484Z",
+                "answer": "lozza191 says Hello Wakanda - Voted A",
+                "user_id": 6,
+                "username": "lozza191"
             }
         ],
         "asked_by": "lozza188"

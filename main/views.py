@@ -39,6 +39,13 @@ class Get_Bookmarks(View):
         for get_qs in get_question_id:
             answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
+            has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id')).count()
+
+            if has_voted == 0:
+                context_has_voted = {'has_voted': False,}
+            else:
+                context_has_voted = {'has_voted': True,}
+
             get_user_id = User_Questions_table.objects.filter(question_id_id = question.get('id')).values('user_id_id')[0]
             get_username = User.objects.filter(id = get_user_id.get('user_id_id')).values('username')[0]
             answers_ids = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id')).values('answer_id_id', 'user_id_id')
@@ -48,10 +55,8 @@ class Get_Bookmarks(View):
                 for answers_id in answers_ids:
                     get_ans_user = User.objects.filter(id = answers_id.get('user_id_id')).values('id','username')[0]
                     get_ans = Answer_table.objects.filter(id = answers_id.get('answer_id_id')).values('id','answer','date_updated')[0]
-                    answers.append(get_ans)
-                    answers.append(get_ans_user)
-                    #ans_ans_by = get_ans, get_ans_user
-                    #answers.append(ans_ans_by)
+                    get_ans_and_users = get_ans, get_ans_user
+                    answers.append(get_ans_and_users)
                     context_ans = {'ans': answers,}
 
             qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id', 'question_id_id')
@@ -73,6 +78,7 @@ class Get_Bookmarks(View):
                 'vote_a': context_vote_a,
                 'vote_b': context_vote_b,
                 'vote_c': context_vote_c,
+                'has_voted': context_has_voted,
             }
             bookmarks.append(context)  
         if check_json != 0 or check_json == 0:

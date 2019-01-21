@@ -1,5 +1,14 @@
 [
-    [],
+    [
+        {
+            "id": 3,
+            "vote_a": 3,
+            "date_voted": "2019-01-21T14:10:58.519Z",
+            "question_id": 6,
+            "question": "Hello Wakanda",
+            "vote": "Wakanda a"
+        }
+    ],
     [
         {
             "id": 12,
