@@ -1,6 +1,6 @@
 [
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": true,
         "question_id": 18,
         "question": "189 third question",
@@ -9,24 +9,24 @@
             "id": "15_a",
             "vote": "third - A",
             "questions_vote_id": 18,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "15_b",
             "vote": "BBBBB",
             "questions_vote_id": 18,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "15_c",
             "vote": "third - C",
             "questions_vote_id": 18,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": "c",
+        "vote_type": "b",
         "vote_a_id": null,
-        "vote_b_id": null,
-        "vote_c_id": 15,
+        "vote_b_id": 15,
+        "vote_c_id": null,
         "answers": [
             {
                 "question_id": 18,
@@ -35,12 +35,20 @@
                 "answer": "This originated from bookmark - lozza190 - 1st",
                 "user_id": 5,
                 "username": "lozza190"
+            },
+            {
+                "question_id": 18,
+                "answer_id": 27,
+                "date_updated": "2019-01-22T17:41:54.726Z",
+                "answer": "sdfsffwewwe - 191",
+                "user_id": 6,
+                "username": "lozza191"
             }
         ],
         "asked_by": "lozza189"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 17,
         "question": "189 second question",
@@ -49,19 +57,19 @@
             "id": "14_a",
             "vote": "second - A",
             "questions_vote_id": 17,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "14_b",
             "vote": "second - B",
             "questions_vote_id": 17,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "14_c",
             "vote": "second - C",
             "questions_vote_id": 17,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -80,8 +88,8 @@
         "asked_by": "lozza189"
     },
     {
-        "user_id": 5,
-        "has_voted": false,
+        "user_id": 3,
+        "has_voted": true,
         "question_id": 16,
         "question": "lozza191 first question",
         "date": "2019-01-20T13:16:03.053Z",
@@ -89,29 +97,29 @@
             "id": "13_a",
             "vote": "question 191 - A",
             "questions_vote_id": 16,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "13_b",
             "vote": "question 191 - B",
             "questions_vote_id": 16,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "13_c",
             "vote": "CC",
             "questions_vote_id": 16,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": null,
-        "vote_a_id": null,
+        "vote_type": "a",
+        "vote_a_id": 13,
         "vote_b_id": null,
         "vote_c_id": null,
         "answers": [],
         "asked_by": "lozza191"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 15,
         "question": "Lozza189 asking his or her first question",
@@ -120,19 +128,19 @@
             "id": "12_a",
             "vote": "189 - A",
             "questions_vote_id": 15,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "12_b",
             "vote": "189 - B",
             "questions_vote_id": 15,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "12_c",
             "vote": "CCCDCCC",
             "questions_vote_id": 15,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -142,7 +150,7 @@
         "asked_by": "lozza189"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 14,
         "question": "Captain America is asking a question",
@@ -151,19 +159,19 @@
             "id": "11_a",
             "vote": "CA - A2",
             "questions_vote_id": 14,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "11_b",
             "vote": "CA - B2",
             "questions_vote_id": 14,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "11_c",
             "vote": "CA - C22",
             "questions_vote_id": 14,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -182,7 +190,7 @@
         "asked_by": "lozza188"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 13,
         "question": "Hello Iceman 2",
@@ -191,19 +199,19 @@
             "id": "10_a",
             "vote": "Iceman A",
             "questions_vote_id": 13,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "10_b",
             "vote": "Iceman B",
             "questions_vote_id": 13,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "10_c",
             "vote": "Iceman CC",
             "questions_vote_id": 13,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -213,8 +221,8 @@
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
-        "has_voted": false,
+        "user_id": 3,
+        "has_voted": true,
         "question_id": 12,
         "question": "Hello Cyclops",
         "date": "2019-01-15T12:10:37.860Z",
@@ -222,29 +230,29 @@
             "id": "9_a",
             "vote": "Cyclops A",
             "questions_vote_id": 12,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "9_b",
             "vote": "Cyclops B",
             "questions_vote_id": 12,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "9_c",
             "vote": "Cyclops C",
             "questions_vote_id": 12,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": null,
+        "vote_type": "b",
         "vote_a_id": null,
-        "vote_b_id": null,
+        "vote_b_id": 9,
         "vote_c_id": null,
         "answers": [],
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 11,
         "question": "Hello Storm",
@@ -253,19 +261,19 @@
             "id": "8_a",
             "vote": "Storm A",
             "questions_vote_id": 11,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "8_b",
             "vote": "Storm B",
             "questions_vote_id": 11,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "8_c",
             "vote": "Storm C",
             "questions_vote_id": 11,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -275,7 +283,7 @@
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 10,
         "question": "Hello Ark Angel",
@@ -284,19 +292,19 @@
             "id": "7_a",
             "vote": "Ark Angel A",
             "questions_vote_id": 10,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "7_b",
             "vote": "Ark Angel B",
             "questions_vote_id": 10,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "7_c",
             "vote": "Ark Angel C",
             "questions_vote_id": 10,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -315,8 +323,8 @@
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
-        "has_voted": true,
+        "user_id": 3,
+        "has_voted": false,
         "question_id": 9,
         "question": "Asking a Question 1",
         "date": "2019-01-14T16:54:11.542Z",
@@ -324,22 +332,22 @@
             "id": "6_a",
             "vote": "Question A",
             "questions_vote_id": 9,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "6_b",
             "vote": "Question B",
             "questions_vote_id": 9,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "6_c",
             "vote": "Question C",
             "questions_vote_id": 9,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": "a",
-        "vote_a_id": 6,
+        "vote_type": null,
+        "vote_a_id": null,
         "vote_b_id": null,
         "vote_c_id": null,
         "answers": [
@@ -363,7 +371,7 @@
         "asked_by": "lozza190"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": true,
         "question_id": 8,
         "question": "Hello Wolverine",
@@ -372,19 +380,19 @@
             "id": "5_a",
             "vote": "Wolverine A",
             "questions_vote_id": 8,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "5_b",
             "vote": "Wolverine B",
             "questions_vote_id": 8,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "5_c",
             "vote": "Wolverine C",
             "questions_vote_id": 8,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": "c",
         "vote_a_id": null,
@@ -398,12 +406,20 @@
                 "answer": "Hello WOvlerine from lozza190",
                 "user_id": 5,
                 "username": "lozza190"
+            },
+            {
+                "question_id": 8,
+                "answer_id": 26,
+                "date_updated": "2019-01-22T17:39:31.558Z",
+                "answer": "I have voted 1st time lozza190",
+                "user_id": 5,
+                "username": "lozza190"
             }
         ],
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": false,
         "question_id": 7,
         "question": "Hello Logan",
@@ -412,19 +428,19 @@
             "id": "4_a",
             "vote": "Logan A",
             "questions_vote_id": 7,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "4_b",
             "vote": "Logan B",
             "questions_vote_id": 7,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "4_c",
             "vote": "Logan C",
             "questions_vote_id": 7,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": null,
         "vote_a_id": null,
@@ -434,7 +450,7 @@
         "asked_by": "lozza187"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": true,
         "question_id": 6,
         "question": "Hello Wakanda",
@@ -443,24 +459,24 @@
             "id": "3_a",
             "vote": "Wakanda a",
             "questions_vote_id": 6,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "3_b",
             "vote": "Wakanda b",
             "questions_vote_id": 6,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "3_c",
             "vote": "Wakanda c",
             "questions_vote_id": 6,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": "a",
-        "vote_a_id": 3,
+        "vote_type": "c",
+        "vote_a_id": null,
         "vote_b_id": null,
-        "vote_c_id": null,
+        "vote_c_id": 3,
         "answers": [
             {
                 "question_id": 6,
@@ -498,7 +514,7 @@
         "asked_by": "lozza188"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": true,
         "question_id": 5,
         "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
@@ -507,19 +523,19 @@
             "id": "2_a",
             "vote": "In vulputate convallis libero ac imperdiet.",
             "questions_vote_id": 5,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "2_b",
             "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
             "questions_vote_id": 5,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "2_c",
             "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
             "questions_vote_id": 5,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_type": "c",
         "vote_a_id": null,
@@ -578,7 +594,7 @@
         "asked_by": "lozza190"
     },
     {
-        "user_id": 5,
+        "user_id": 3,
         "has_voted": true,
         "question_id": 4,
         "question": "hello 3",
@@ -587,24 +603,24 @@
             "id": "1_a",
             "vote": "a1",
             "questions_vote_id": 4,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_b": {
             "id": "1_b",
             "vote": "b1",
             "questions_vote_id": 4,
-            "user_id": 5
+            "user_id": 3
         },
         "vote_c": {
             "id": "1_c",
             "vote": "c1",
             "questions_vote_id": 4,
-            "user_id": 5
+            "user_id": 3
         },
-        "vote_type": "c",
-        "vote_a_id": null,
+        "vote_type": "a",
+        "vote_a_id": 1,
         "vote_b_id": null,
-        "vote_c_id": 1,
+        "vote_c_id": null,
         "answers": [
             {
                 "question_id": 4,
@@ -635,6 +651,14 @@
                 "answer_id": 24,
                 "date_updated": "2019-01-22T17:06:21.676Z",
                 "answer": "This originated from main - lozza188",
+                "user_id": 3,
+                "username": "lozza188"
+            },
+            {
+                "question_id": 4,
+                "answer_id": 28,
+                "date_updated": "2019-01-22T18:45:56.640Z",
+                "answer": "rgjergkklegjkjerlkjrgele - lozza188",
                 "user_id": 3,
                 "username": "lozza188"
             }

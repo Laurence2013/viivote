@@ -30,6 +30,7 @@ class Get_Bookmarks(View):
     __get_json = Save_Data_To_Json()
     __base_dir = settings.BASE_DIR
     __get_bookmarks_json = 'get_bookmarks'
+    __pp = pprint.PrettyPrinter(indent = 3)
 
     def get(self, request, *args, **kwargs):
         bookmarks = []
@@ -39,11 +40,11 @@ class Get_Bookmarks(View):
         for get_qs in get_question_id:
             answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
-            has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).count()
-            has_voted_type = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).values('vote_type')
-            voted_for = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
+            has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).count()
+            has_voted_type = Has_Voted_Per_Question_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_type')
+            voted_for = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
             if not voted_for:
-                continue
+                user_voted_for = None
             else:
                 if voted_for[0].get('vote_a_id') != None:
                     user_voted_for = voted_for[0].get('vote_a_id')
@@ -51,7 +52,6 @@ class Get_Bookmarks(View):
                     user_voted_for = voted_for[0].get('vote_b_id')
                 if voted_for[0].get('vote_c_id') != None:
                     user_voted_for = voted_for[0].get('vote_c_id')
-
             if has_voted == 0 and not has_voted_type:
                 context_has_voted = {'has_voted': False, 'you_voted': False}
             else:
@@ -69,7 +69,6 @@ class Get_Bookmarks(View):
                     get_ans_and_users = get_ans, get_ans_user
                     answers.append(get_ans_and_users)
                     context_ans = {'ans': answers,}
-
             qs_vote_id = Questions_Votes_table.objects.filter(question_id_id = question.get('id')).values('votes_id_id', 'question_id_id')
             votes_a_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_a_id')[0]
             votes_b_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_b_id')[0]
