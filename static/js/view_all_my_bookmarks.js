@@ -37,9 +37,10 @@
         html += '<b>Question </b> | <small>'+ new_date_format(date_updatedd) +'</small>';
         html += '<li>'+ results[result].question +' | <small>asked by</small> '+ results[result].username +'</li>';
         html += '<b>Votes</b>';
-        html += '<li><b>Vote A: </b><input type="radio" name="" value=""> '+ results[result].vote_a.vote_a.vote +'</li>';
-        html += '<li><b>Vote B: </b><input type="radio" name="" value=""> '+ results[result].vote_b.vote_b.vote +'</li>';
-        html += '<li><b>Vote C: </b><input type="radio" name="" value=""> '+ results[result].vote_c.vote_c.vote +'</li>';
+
+        html += '<li><b>Vote A: </b><input type="radio" name="'+ results[result].vote_a.qs_id_type +'" value="'+ results[result].vote_a.vote_a.id +'"> '+ results[result].vote_a.vote_a.vote +'</li>';
+        html += '<li><b>Vote B: </b><input type="radio" name="'+ results[result].vote_b.qs_id_type +'" value="'+ results[result].vote_b.vote_b.id +'"'+ results[result].vote_a.type +'> '+ results[result].vote_b.vote_b.vote +'</li>';
+        html += '<li><b>Vote C: </b><input type="radio" name="'+ results[result].vote_c.qs_id_type +'" value="'+ results[result].vote_c.vote_c.id +'"> '+ results[result].vote_c.vote_c.vote +'</li>';
         if(results[result].answers.ans == null){
           html += '<b>All answers</b>';
           html += '<li>No answers were found so far</li>';
@@ -50,11 +51,11 @@
           });
         }
         if(results[result].has_voted.has_voted === true){
-          html += '<p><a href="'+ base_url + answer_vote + '/' + results[result].id +'">Click here to answer your vote</a></p>'; 
+          html += '<p><a href="'+ base_url + answer_vote + '/' + results[result].question_id +'">Click here to answer your vote</a></p>'; 
         }else{
           html += '<p><button class="btn btn-outline-info" type="submit">Vote</button></p>';
         }
-        html += '<small><a href="'+ base_url + del_bookmark + '/' + results[result].id +'">Delete from bookmark</a></small>';
+        html += '<small><a href="'+ base_url + del_bookmark + '/' + results[result].question_id +'">Delete from bookmark</a></small>';
         html += '<hr>';
       }
       html += '</ul>';

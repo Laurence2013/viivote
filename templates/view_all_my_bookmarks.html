@@ -5,10 +5,12 @@
 {% block content %}
   <div class='content-section'>
     {% if user.is_authenticated %}
+    <form method="POST">{% csrf_token %}
       <fieldset>
         <legend>All my bookmarks</legend>
         <section id='view_my_bookmarks'></section>
       </fieldset>
+    </form>
     {% endif %}
   </div>
   <script src="{% static 'js/view_all_my_bookmarks.js' %}"></script>

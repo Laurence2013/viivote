@@ -8,7 +8,7 @@
         "vote_a": {
             "id": 10,
             "vote": "Iceman A",
-            "total_votes": 0,
+            "total_votes": 1,
             "date_updated": "2019-01-15T12:11:47.889Z"
         },
         "vote_b": {

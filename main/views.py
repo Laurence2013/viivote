@@ -64,13 +64,13 @@ class Get_Bookmarks(View):
             votes_b_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_b_id')[0]
             votes_c_id = Votes_table.objects.filter(id = qs_vote_id[0].get('votes_id_id')).values('vote_c_id')[0]
             votes_a = Vote_A_table.objects.filter(id = votes_a_id.get('vote_a_id')).values('id','vote','date_updated')[0]
-            context_vote_a = {'type': 'type_a', 'vote_a': votes_a,}
+            context_vote_a = {'type': 'type_a', 'vote_a': votes_a, 'qs_id_type': str(question.get('id')) + '_a',}
             votes_b = Vote_B_table.objects.filter(id = votes_b_id.get('vote_b_id')).values('id','vote','date_updated')[0]
-            context_vote_b = {'type': 'type_b', 'vote_b': votes_b,}
+            context_vote_b = {'type': 'type_b', 'vote_b': votes_b, 'qs_id_type': str(question.get('id')) + '_b',}
             votes_c = Vote_C_table.objects.filter(id = votes_c_id.get('vote_c_id')).values('id','vote','date_updated')[0]
-            context_vote_c = {'type': 'type_c', 'vote_c': votes_c,}
+            context_vote_c = {'type': 'type_c', 'vote_c': votes_c, 'qs_id_type': str(question.get('id')) + '_c',}
             context = {
-                'id': question.get('id'),
+                'question_id': question.get('id'),
                 'question': question.get('question'),
                 'username': get_username.get('username'),
                 'answers': context_ans,
@@ -84,6 +84,43 @@ class Get_Bookmarks(View):
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(bookmarks, self.__get_bookmarks_json)
         return render(request, 'view_all_my_bookmarks.html', {})
+
+    def post(self, request, *args, **kwargs):
+        username = request.user
+        user_id = request.user.id
+        votes = request.POST
+        for k_vote, v_vote in votes.items():
+            if k_vote == 'csrfmiddlewaretoken':
+                continue
+            k_votee = k_vote.split('_')
+            ask_question_id = int(k_votee[0])
+            vote_type = k_votee[1]
+            vote_id = v_vote        
+        try:
+            if vote_type == 'a':
+                User_Vote_A_table.objects.create(user_id_id = user_id, vote_a_id_id = vote_id, ask_question_id_id = ask_question_id).save()
+                self.__save_user_votes(Vote_A_table, vote_id)
+            if vote_type == 'b':
+                User_Vote_B_table.objects.create(user_id_id = user_id, vote_b_id_id = vote_id, ask_question_id_id = ask_question_id).save()
+                self.__save_user_votes(Vote_B_table, vote_id)
+            if vote_type == 'c':
+                User_Vote_C_table.objects.create(user_id_id = user_id, vote_c_id_id = vote_id, ask_question_id_id = ask_question_id).save()
+                self.__save_user_votes(Vote_C_table, vote_id)
+
+            has_voted = Has_Voted_Per_Question(vote_type, vote_id)
+            has_voted.get_qs_id(user_id)
+
+            messages.success(request, f'You have successfully voted {username}')
+            return redirect('main')
+        except UnboundLocalError as e:
+            print(e)
+            messages.warning(request, f'Please select a vote before submitting {username}')
+            return redirect('main')
+    
+    def __save_user_votes(self, vote, vote_id):
+        vote = vote.objects.get(id = vote_id)
+        vote.total_votes = F('total_votes') + 1
+        vote.save()        
 
 class View_My_Bookmarks(View):
     __get_json = Save_Data_To_Json()
