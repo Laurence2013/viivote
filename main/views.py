@@ -40,11 +40,22 @@ class Get_Bookmarks(View):
             answers = []
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
             has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).count()
-
-            if has_voted == 0:
-                context_has_voted = {'has_voted': False,}
+            has_voted_type = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).values('vote_type')
+            voted_for = Has_Voted_Per_Question_table.objects.filter(question_id_id = question.get('id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
+            if not voted_for:
+                continue
             else:
-                context_has_voted = {'has_voted': True,}
+                if voted_for[0].get('vote_a_id') != None:
+                    user_voted_for = voted_for[0].get('vote_a_id')
+                if voted_for[0].get('vote_b_id') != None:
+                    user_voted_for = voted_for[0].get('vote_b_id')
+                if voted_for[0].get('vote_c_id') != None:
+                    user_voted_for = voted_for[0].get('vote_c_id')
+
+            if has_voted == 0 and not has_voted_type:
+                context_has_voted = {'has_voted': False, 'you_voted': False}
+            else:
+                context_has_voted = {'has_voted': True, 'you_voted': has_voted_type[0].get('vote_type'), 'you_voted_for': user_voted_for,}
 
             get_user_id = User_Questions_table.objects.filter(question_id_id = question.get('id')).values('user_id_id')[0]
             get_username = User.objects.filter(id = get_user_id.get('user_id_id')).values('username')[0]
@@ -111,11 +122,11 @@ class Get_Bookmarks(View):
             has_voted.get_qs_id(user_id)
 
             messages.success(request, f'You have successfully voted {username}')
-            return redirect('main')
+            return redirect('get_bookmarks')
         except UnboundLocalError as e:
             print(e)
             messages.warning(request, f'Please select a vote before submitting {username}')
-            return redirect('main')
+            return redirect('get_bookmarks')
     
     def __save_user_votes(self, vote, vote_id):
         vote = vote.objects.get(id = vote_id)

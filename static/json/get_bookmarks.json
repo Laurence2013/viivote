@@ -1,65 +1,68 @@
 [
     {
-        "question_id": 17,
-        "question": "189 second question",
+        "question_id": 18,
+        "question": "189 third question",
         "username": "lozza189",
         "answers": {
-            "ans": null
+            "ans": [
+                [
+                    {
+                        "id": 25,
+                        "answer": "This originated from bookmark - lozza190 - 1st",
+                        "date_updated": "2019-01-22T17:08:08.667Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ]
+            ]
         },
-        "date_updated": "2019-01-22T14:41:20.567Z",
+        "date_updated": "2019-01-22T17:07:41.971Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
-                "id": 14,
-                "vote": "second - A",
-                "date_updated": "2019-01-20T13:36:18.149Z"
+                "id": 15,
+                "vote": "third - A",
+                "date_updated": "2019-01-20T13:36:43.099Z"
             },
-            "qs_id_type": "17_a"
+            "qs_id_type": "18_a"
         },
         "vote_b": {
             "type": "type_b",
             "vote_b": {
-                "id": 14,
-                "vote": "second - B",
-                "date_updated": "2019-01-20T13:36:18.250Z"
+                "id": 15,
+                "vote": "BBBBB",
+                "date_updated": "2019-01-20T13:36:43.149Z"
             },
-            "qs_id_type": "17_b"
+            "qs_id_type": "18_b"
         },
         "vote_c": {
             "type": "type_c",
             "vote_c": {
-                "id": 14,
-                "vote": "second - C",
-                "date_updated": "2019-01-20T13:36:18.350Z"
+                "id": 15,
+                "vote": "third - C",
+                "date_updated": "2019-01-20T13:36:43.199Z"
             },
-            "qs_id_type": "17_c"
+            "qs_id_type": "18_c"
         },
         "has_voted": {
-            "has_voted": false
+            "has_voted": true,
+            "you_voted": "c",
+            "you_voted_for": 15
         }
     },
     {
-        "question_id": 5,
-        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+        "question_id": 9,
+        "question": "Asking a Question 1",
         "username": "lozza190",
         "answers": {
             "ans": [
                 [
                     {
-                        "id": 3,
-                        "answer": "This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem ",
-                        "date_updated": "2019-01-14T01:06:57.912Z"
-                    },
-                    {
-                        "id": 4,
-                        "username": "lozza189"
-                    }
-                ],
-                [
-                    {
-                        "id": 4,
-                        "answer": "This is my lorem 2",
-                        "date_updated": "2019-01-14T01:07:46.228Z"
+                        "id": 10,
+                        "answer": "Asking question answer 1",
+                        "date_updated": "2019-01-14T16:55:14.042Z"
                     },
                     {
                         "id": 5,
@@ -68,142 +71,102 @@
                 ],
                 [
                     {
-                        "id": 7,
-                        "answer": "This is lorem 3",
-                        "date_updated": "2019-01-14T14:13:28.340Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 18,
-                        "answer": "Aliquam Aliquam Aliquam Aliquam Aliquam AliquamAliquam",
-                        "date_updated": "2019-01-20T13:39:27.942Z"
-                    },
-                    {
-                        "id": 4,
-                        "username": "lozza189"
-                    }
-                ]
-            ]
-        },
-        "date_updated": "2019-01-21T16:12:39.607Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 2,
-                "vote": "In vulputate convallis libero ac imperdiet.",
-                "date_updated": "2019-01-03T19:40:22.892Z"
-            },
-            "qs_id_type": "5_a"
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 2,
-                "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
-                "date_updated": "2019-01-03T19:40:22.942Z"
-            },
-            "qs_id_type": "5_b"
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 2,
-                "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
-                "date_updated": "2019-01-03T19:40:23.042Z"
-            },
-            "qs_id_type": "5_c"
-        },
-        "has_voted": {
-            "has_voted": true
-        }
-    },
-    {
-        "question_id": 6,
-        "question": "Hello Wakanda",
-        "username": "lozza188",
-        "answers": {
-            "ans": [
-                [
-                    {
-                        "id": 8,
-                        "answer": "Hello Wakanda -- Wakanda A -- lozza190",
-                        "date_updated": "2019-01-14T15:01:17.441Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 9,
-                        "answer": "Hello Wakanda -- Wakanda AAAAAAAAA -- lozza190 --- Another answer for this questions vote",
-                        "date_updated": "2019-01-14T15:03:03.978Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 16,
-                        "answer": "Lorem Wakanda answered by lozza187 - First time",
-                        "date_updated": "2019-01-18T14:37:18.422Z"
+                        "id": 11,
+                        "answer": "Lorem example by lozza187 (A)",
+                        "date_updated": "2019-01-15T11:06:50.672Z"
                     },
                     {
                         "id": 2,
                         "username": "lozza187"
                     }
-                ],
-                [
-                    {
-                        "id": 19,
-                        "answer": "lozza191 says Hello Wakanda - Voted A",
-                        "date_updated": "2019-01-21T14:11:20.484Z"
-                    },
-                    {
-                        "id": 6,
-                        "username": "lozza191"
-                    }
                 ]
             ]
         },
-        "date_updated": "2019-01-17T14:26:08.219Z",
+        "date_updated": "2019-01-17T18:37:38.937Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
-                "id": 3,
-                "vote": "Wakanda a",
-                "date_updated": "2019-01-04T21:03:52.338Z"
+                "id": 6,
+                "vote": "Question A",
+                "date_updated": "2019-01-14T16:54:11.670Z"
             },
-            "qs_id_type": "6_a"
+            "qs_id_type": "9_a"
         },
         "vote_b": {
             "type": "type_b",
             "vote_b": {
-                "id": 3,
-                "vote": "Wakanda b",
-                "date_updated": "2019-01-04T21:03:52.388Z"
+                "id": 6,
+                "vote": "Question B",
+                "date_updated": "2019-01-14T16:54:11.712Z"
             },
-            "qs_id_type": "6_b"
+            "qs_id_type": "9_b"
         },
         "vote_c": {
             "type": "type_c",
             "vote_c": {
-                "id": 3,
-                "vote": "Wakanda c",
-                "date_updated": "2019-01-04T21:03:52.438Z"
+                "id": 6,
+                "vote": "Question C",
+                "date_updated": "2019-01-14T16:54:11.754Z"
             },
-            "qs_id_type": "6_c"
+            "qs_id_type": "9_c"
         },
         "has_voted": {
-            "has_voted": true
+            "has_voted": true,
+            "you_voted": "a",
+            "you_voted_for": 6
+        }
+    },
+    {
+        "question_id": 8,
+        "question": "Hello Wolverine",
+        "username": "lozza187",
+        "answers": {
+            "ans": [
+                [
+                    {
+                        "id": 15,
+                        "answer": "Hello WOvlerine from lozza190",
+                        "date_updated": "2019-01-17T18:23:35.087Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ]
+            ]
+        },
+        "date_updated": "2019-01-17T18:22:29.696Z",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 5,
+                "vote": "Wolverine A",
+                "date_updated": "2019-01-11T13:52:14.925Z"
+            },
+            "qs_id_type": "8_a"
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 5,
+                "vote": "Wolverine B",
+                "date_updated": "2019-01-11T13:52:14.975Z"
+            },
+            "qs_id_type": "8_b"
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 5,
+                "vote": "Wolverine C",
+                "date_updated": "2019-01-11T13:52:15.024Z"
+            },
+            "qs_id_type": "8_c"
+        },
+        "has_voted": {
+            "has_voted": true,
+            "you_voted": "c",
+            "you_voted_for": 5
         }
     }
 ]

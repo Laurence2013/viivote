@@ -47,11 +47,13 @@
         }else{
           html += '<b>All answers</b>';
           Object.values(results[result].answers.ans).forEach(function(anss){
-            html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +'</small></li>';
+            let ans_date = anss[0].date_updated.slice(0, -14)
+            html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +'</small></li>';
           });
         }
         if(results[result].has_voted.has_voted === true){
-          html += '<p><a href="'+ base_url + answer_vote + '/' + results[result].question_id +'">Click here to answer your vote</a></p>'; 
+          html += '<p>You voted <b>'+ results[result].has_voted.you_voted.toUpperCase() +'</b></p>';
+          html += '<p><a href="'+ base_url + answer_vote + '/' + results[result].question_id +'/'+ results[result].has_voted.you_voted +'/'+ results[result].has_voted.you_voted_for +'">Click here to answer your vote</a></p>'; 
         }else{
           html += '<p><button class="btn btn-outline-info" type="submit">Vote</button></p>';
         }
