@@ -16,12 +16,15 @@
   let base_url = getBaseUrl();
   let del_bookmark = 'delete_bookmark';
   let answer_vote = 'answer_vote';
+  let edit = 'edit';
+  let del_ete = 'delete';
 
   let http = new XMLHttpRequest();
   http.onreadystatechange = function(){
     if(http.readyState == 4 && http.status == 200){
-      let results = JSON.parse(http.responseText);
-      console.log(results);
+      let resultss = JSON.parse(http.responseText);
+      console.log(resultss);
+      let results = resultss.slice(1);
       let html = '';
 
       html += '<ul>';
@@ -48,7 +51,11 @@
           html += '<b>All answers</b>';
           Object.values(results[result].answers.ans).forEach(function(anss){
             let ans_date = anss[0].date_updated.slice(0, -14)
-            html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +'</small></li>';
+            if(resultss[0].user_id === anss[1].id){
+              html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +' | <a href="'+ base_url + edit + '/' + anss[0].id +'">Edit</a> | <a href="#">Delete</a></small></li>';
+            }else{
+              html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +'</small></li>';
+            }
           });
         }
         if(results[result].has_voted.has_voted === true){

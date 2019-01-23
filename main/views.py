@@ -35,6 +35,9 @@ class Get_Bookmarks(View):
     def get(self, request, *args, **kwargs):
         bookmarks = []
         user_id = request.user.id
+        user_username = request.user
+        context_user = {'user_id': int(user_id), 'username': str(user_username),}
+        bookmarks.append(context_user)
         check_json = self.__base_dir + '/static/json/'+ self.__get_bookmarks_json +'.json'
         get_question_id = Bookmark_table.objects.filter(user_id_id = user_id).values('question_id_id','date_updated').order_by('-date_updated')
         for get_qs in get_question_id:
@@ -42,7 +45,8 @@ class Get_Bookmarks(View):
             question = Ask_A_Question_table.objects.filter(id = get_qs.get('question_id_id')).values('id','question')[0]
             has_voted = Has_Voted_Per_Question_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).count()
             has_voted_type = Has_Voted_Per_Question_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_type')
-            voted_for = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
+            #voted_for = User_Questions_Votes_Answers_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
+            voted_for = Has_Voted_Per_Question_table.objects.filter(question_id_id = get_qs.get('question_id_id'), user_id_id = user_id).values('vote_a_id','vote_b_id','vote_c_id')
             if not voted_for:
                 user_voted_for = None
             else:

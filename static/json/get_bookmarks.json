@@ -1,85 +1,7 @@
 [
     {
-        "question_id": 12,
-        "question": "Hello Cyclops",
-        "username": "lozza187",
-        "answers": {
-            "ans": null
-        },
-        "date_updated": "2019-01-22T18:57:59.782Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 9,
-                "vote": "Cyclops A",
-                "date_updated": "2019-01-15T12:10:37.950Z"
-            },
-            "qs_id_type": "12_a"
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 9,
-                "vote": "Cyclops B",
-                "date_updated": "2019-01-15T12:10:37.992Z"
-            },
-            "qs_id_type": "12_b"
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 9,
-                "vote": "Cyclops C",
-                "date_updated": "2019-01-15T12:10:38.034Z"
-            },
-            "qs_id_type": "12_c"
-        },
-        "has_voted": {
-            "has_voted": true,
-            "you_voted": "b",
-            "you_voted_for": null
-        }
-    },
-    {
-        "question_id": 16,
-        "question": "lozza191 first question",
-        "username": "lozza191",
-        "answers": {
-            "ans": null
-        },
-        "date_updated": "2019-01-22T18:47:43.108Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 13,
-                "vote": "question 191 - A",
-                "date_updated": "2019-01-20T13:16:03.143Z"
-            },
-            "qs_id_type": "16_a"
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 13,
-                "vote": "question 191 - B",
-                "date_updated": "2019-01-20T13:16:03.185Z"
-            },
-            "qs_id_type": "16_b"
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 13,
-                "vote": "CC",
-                "date_updated": "2019-01-20T13:16:03.245Z"
-            },
-            "qs_id_type": "16_c"
-        },
-        "has_voted": {
-            "has_voted": true,
-            "you_voted": "a",
-            "you_voted_for": null
-        }
+        "user_id": 4,
+        "username": "lozza189"
     },
     {
         "question_id": 17,
@@ -100,7 +22,7 @@
                 ]
             ]
         },
-        "date_updated": "2019-01-22T18:47:32.226Z",
+        "date_updated": "2019-01-23T14:00:08.006Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
@@ -134,6 +56,92 @@
         }
     },
     {
+        "question_id": 5,
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+        "username": "lozza190",
+        "answers": {
+            "ans": [
+                [
+                    {
+                        "id": 3,
+                        "answer": "This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem This is my lorem ",
+                        "date_updated": "2019-01-14T01:06:57.912Z"
+                    },
+                    {
+                        "id": 4,
+                        "username": "lozza189"
+                    }
+                ],
+                [
+                    {
+                        "id": 4,
+                        "answer": "This is my lorem 2",
+                        "date_updated": "2019-01-14T01:07:46.228Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ],
+                [
+                    {
+                        "id": 7,
+                        "answer": "This is lorem 3",
+                        "date_updated": "2019-01-14T14:13:28.340Z"
+                    },
+                    {
+                        "id": 5,
+                        "username": "lozza190"
+                    }
+                ],
+                [
+                    {
+                        "id": 21,
+                        "answer": "This is my 1st answer for this questions 'Lorem ...', lozza187",
+                        "date_updated": "2019-01-22T16:23:47.519Z"
+                    },
+                    {
+                        "id": 2,
+                        "username": "lozza187"
+                    }
+                ]
+            ]
+        },
+        "date_updated": "2019-01-23T13:58:58.722Z",
+        "vote_a": {
+            "type": "type_a",
+            "vote_a": {
+                "id": 2,
+                "vote": "In vulputate convallis libero ac imperdiet.",
+                "date_updated": "2019-01-03T19:40:22.892Z"
+            },
+            "qs_id_type": "5_a"
+        },
+        "vote_b": {
+            "type": "type_b",
+            "vote_b": {
+                "id": 2,
+                "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
+                "date_updated": "2019-01-03T19:40:22.942Z"
+            },
+            "qs_id_type": "5_b"
+        },
+        "vote_c": {
+            "type": "type_c",
+            "vote_c": {
+                "id": 2,
+                "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
+                "date_updated": "2019-01-03T19:40:23.042Z"
+            },
+            "qs_id_type": "5_c"
+        },
+        "has_voted": {
+            "has_voted": true,
+            "you_voted": "c",
+            "you_voted_for": 2
+        }
+    },
+    {
         "question_id": 18,
         "question": "189 third question",
         "username": "lozza189",
@@ -163,7 +171,7 @@
                 ]
             ]
         },
-        "date_updated": "2019-01-22T18:45:31.073Z",
+        "date_updated": "2019-01-23T13:58:35.195Z",
         "vote_a": {
             "type": "type_a",
             "vote_a": {
@@ -194,104 +202,7 @@
         "has_voted": {
             "has_voted": true,
             "you_voted": "b",
-            "you_voted_for": null
-        }
-    },
-    {
-        "question_id": 4,
-        "question": "hello 3",
-        "username": "admin",
-        "answers": {
-            "ans": [
-                [
-                    {
-                        "id": 12,
-                        "answer": "reertetereee 1111111112332",
-                        "date_updated": "2019-01-15T11:57:23.378Z"
-                    },
-                    {
-                        "id": 3,
-                        "username": "lozza188"
-                    }
-                ],
-                [
-                    {
-                        "id": 14,
-                        "answer": "lozza190 answers hello 3 ...... hello 3333333",
-                        "date_updated": "2019-01-17T17:22:36.184Z"
-                    },
-                    {
-                        "id": 5,
-                        "username": "lozza190"
-                    }
-                ],
-                [
-                    {
-                        "id": 23,
-                        "answer": "This originated from bookmarks - lozza188 - 1st",
-                        "date_updated": "2019-01-22T17:05:52.699Z"
-                    },
-                    {
-                        "id": 3,
-                        "username": "lozza188"
-                    }
-                ],
-                [
-                    {
-                        "id": 24,
-                        "answer": "This originated from main - lozza188",
-                        "date_updated": "2019-01-22T17:06:21.676Z"
-                    },
-                    {
-                        "id": 3,
-                        "username": "lozza188"
-                    }
-                ],
-                [
-                    {
-                        "id": 28,
-                        "answer": "rgjergkklegjkjerlkjrgele - lozza188",
-                        "date_updated": "2019-01-22T18:45:56.640Z"
-                    },
-                    {
-                        "id": 3,
-                        "username": "lozza188"
-                    }
-                ]
-            ]
-        },
-        "date_updated": "2019-01-21T16:24:01.463Z",
-        "vote_a": {
-            "type": "type_a",
-            "vote_a": {
-                "id": 1,
-                "vote": "a1",
-                "date_updated": "2019-01-03T18:56:52.273Z"
-            },
-            "qs_id_type": "4_a"
-        },
-        "vote_b": {
-            "type": "type_b",
-            "vote_b": {
-                "id": 1,
-                "vote": "b1",
-                "date_updated": "2019-01-03T18:56:52.341Z"
-            },
-            "qs_id_type": "4_b"
-        },
-        "vote_c": {
-            "type": "type_c",
-            "vote_c": {
-                "id": 1,
-                "vote": "c1",
-                "date_updated": "2019-01-03T18:56:52.391Z"
-            },
-            "qs_id_type": "4_c"
-        },
-        "has_voted": {
-            "has_voted": true,
-            "you_voted": "a",
-            "you_voted_for": 1
+            "you_voted_for": 15
         }
     }
 ]
