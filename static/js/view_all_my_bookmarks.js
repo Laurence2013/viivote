@@ -52,7 +52,7 @@
           Object.values(results[result].answers.ans).forEach(function(anss){
             let ans_date = anss[0].date_updated.slice(0, -14)
             if(resultss[0].user_id === anss[1].id){
-              html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +' | <a href="'+ base_url + edit + '/' + anss[0].id +'">Edit</a> | <a href="#">Delete</a></small></li>';
+              html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +' | <a href="'+ base_url + edit + '/' + anss[0].id +'">Edit</a> | <a href="'+ base_url + del_ete + '/' + anss[0].id +'">Delete</a></small></li>';
             }else{
               html += '<li>'+ anss[0].answer +' <small>answered by | '+ anss[1].username +' | '+ new_date_format(ans_date) +'</small></li>';
             }
