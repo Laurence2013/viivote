@@ -14,7 +14,11 @@
       }; 
 
       Object.values(results).forEach(function(qs){
-        Object.values(qs).forEach(function(q){
+        html += '<b>All my votes for: Vote </b>' + qs.vote_type.toUpperCase();
+        if(qs.votes.length === 0){
+          html += '<p>No votes for Vote '+ qs.vote_type.toUpperCase() +'</p>';
+        }
+        Object.values(qs.votes).forEach(function(q){
           let date_updated = q.date_voted.slice(0, -14);
           html += '<ul>';
           html += '<li><b>Question: </b>'+ q.question +' <b>I voted:</b> '+ q.vote +' | <small> voted on </small>'+ new_date_format(date_updated) +'</li>';

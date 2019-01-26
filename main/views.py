@@ -323,28 +323,31 @@ class View_All_My_Votes(View):
         all_qs_vs = []
 
         user_id = request.user.id
-        user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id','date_updated')
-        user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id','date_updated')
-        user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id','date_updated')
+        user_vote_a = User_Vote_A_table.objects.filter(user_id_id = user_id).values_list('vote_a_id_id','date_updated').order_by('-date_updated')
+        user_vote_b = User_Vote_B_table.objects.filter(user_id_id = user_id).values_list('vote_b_id_id','date_updated').order_by('-date_updated')
+        user_vote_c = User_Vote_C_table.objects.filter(user_id_id = user_id).values_list('vote_c_id_id','date_updated').order_by('-date_updated')
  
         from_votes_table_a = View_All_My_Votess(user_vote_a)
         get_votes_a_table_ids = from_votes_table_a.get_from_votes_type('a')
         get_qs_with_its_vote_a = from_votes_table_a.get_from_questions_votes(get_votes_a_table_ids)
         qs_vs_a = from_votes_table_a.get_qs_with_its_vote(get_qs_with_its_vote_a,'a',Vote_A_table,'vote_a')
+        context_a = {'vote_type': 'a', 'votes': qs_vs_a}
 
         from_votes_table_b = View_All_My_Votess(user_vote_b)
         get_votes_b_table_ids = from_votes_table_b.get_from_votes_type('b')
         get_qs_with_its_vote_b = from_votes_table_b.get_from_questions_votes(get_votes_b_table_ids)
         qs_vs_b = from_votes_table_b.get_qs_with_its_vote(get_qs_with_its_vote_b,'b',Vote_B_table,'vote_b')
+        context_b = {'vote_type': 'b', 'votes': qs_vs_b}
         
         from_votes_table_c = View_All_My_Votess(user_vote_c)
         get_votes_c_table_ids = from_votes_table_c.get_from_votes_type('c')
         get_qs_with_its_vote_c = from_votes_table_c.get_from_questions_votes(get_votes_c_table_ids)
         qs_vs_c = from_votes_table_c.get_qs_with_its_vote(get_qs_with_its_vote_c,'c',Vote_C_table,'vote_c')
+        context_c = {'vote_type': 'c', 'votes': qs_vs_c}
 
-        all_qs_vs.append(qs_vs_a)
-        all_qs_vs.append(qs_vs_b)
-        all_qs_vs.append(qs_vs_c)
+        all_qs_vs.append(context_a)
+        all_qs_vs.append(context_b)
+        all_qs_vs.append(context_c)
         
         if check_json != 0 or check_json == 0:
             self.__get_json.save_json(all_qs_vs, self.__all_user_votes_json)

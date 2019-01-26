@@ -1,33 +1,33 @@
 [
     {
-        "id": 15,
-        "question": "Lozza189 asking his or her first question",
-        "date_updated": "2019-01-20T12:36:08.776Z"
+        "id": 5,
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum consectetur sodales. Fusce et sapien nec tortor pulvinar dapibus. Aenean in aliquet turpis.",
+        "date_updated": "2019-01-03T19:40:22.755Z"
     },
     {
         "vote_type": "type_a",
         "vote": {
-            "id": 12,
-            "vote": "189 - A",
-            "date_updated": "2019-01-20T12:36:08.869Z"
+            "id": 2,
+            "vote": "In vulputate convallis libero ac imperdiet.",
+            "date_updated": "2019-01-03T19:40:22.892Z"
         },
         "vote_abc": "vote_a"
     },
     {
         "vote_type": "type_b",
         "vote": {
-            "id": 12,
-            "vote": "189 - B",
-            "date_updated": "2019-01-20T12:36:08.919Z"
+            "id": 2,
+            "vote": "Maecenas quis interdum nunc, vel aliquam lacus.",
+            "date_updated": "2019-01-03T19:40:22.942Z"
         },
         "vote_abc": "vote_b"
     },
     {
         "vote_type": "type_c",
         "vote": {
-            "id": 12,
-            "vote": "189 - C",
-            "date_updated": "2019-01-20T12:36:08.969Z"
+            "id": 2,
+            "vote": "Aliquam aliquet ante sem, sed ullamcorper tortor tempus vitae.",
+            "date_updated": "2019-01-03T19:40:23.042Z"
         },
         "vote_abc": "vote_c"
     }

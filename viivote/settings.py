@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,9 @@ DATABASES = {
         'USER': 'root_user1',
         'PASSWORD': '530173advent',
         'HOST': 'localhost',
+        'TEST': {
+            'NAME': 'test_viivote',
+        }
     }
 }
 
@@ -130,3 +134,5 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'main'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner';
