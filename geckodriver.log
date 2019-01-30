@@ -902,3 +902,17 @@ console.error: BroadcastService:
 1548782294072	Marionette	WARN	TLS certificate errors will be ignored for this session
 1548782308566	Marionette	INFO	Stopped listening on port 38301
 [Parent 15344, Gecko_IOThread] WARNING: pipe error (79): Connection reset by peer: file /build/firefox-wWf_B4/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1548859562979	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vwkQFFADldh5"
+1548859564172	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548859564172	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548859568779	Marionette	INFO	Listening on port 33013
+1548859568839	Marionette	WARN	TLS certificate errors will be ignored for this session
+1548859584803	Marionette	INFO	Stopped listening on port 33013
+[Parent 7027, Gecko_IOThread] WARNING: pipe error (79): Connection reset by peer: file /build/firefox-wWf_B4/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1548859681495	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.m5YuR7bTyVPb"
+1548859682077	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548859682078	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548859685137	Marionette	INFO	Listening on port 41615
+1548859685213	Marionette	WARN	TLS certificate errors will be ignored for this session
+1548859700658	Marionette	INFO	Stopped listening on port 41615
+[Parent 7412, Gecko_IOThread] WARNING: pipe error (79): Connection reset by peer: file /build/firefox-wWf_B4/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363

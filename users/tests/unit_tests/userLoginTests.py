@@ -1,4 +1,4 @@
-from main.tests.db_setup.db_setup import UserLoginInfo
+from users.tests.db_setup.db_setup import UserLoginInfo
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from django.urls import reverse

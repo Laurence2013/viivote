@@ -1,4 +1,4 @@
-from main.tests.db_setup.db_setup import UserLoginInfo
+from users.tests.db_setup.db_setup import UserLoginInfo
 from nose.tools import nottest
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.common.keys import Keys

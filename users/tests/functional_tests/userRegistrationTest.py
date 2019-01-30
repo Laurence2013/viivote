@@ -1,7 +1,7 @@
 import requests
 from nose.tools import nottest
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from main.tests.db_setup.db_setup import UserRegistrationInfo
+from users.tests.db_setup.db_setup import UserRegistrationInfo
 from selenium.webdriver.common.keys import Keys 
 from selenium import webdriver
 
