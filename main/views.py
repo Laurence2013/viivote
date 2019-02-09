@@ -13,6 +13,7 @@ from main.view_all_my_votess import View_All_My_Votess
 from main.has_voted_per_question import Has_Voted_Per_Question
 from main.view_all_my_questionss import View_All_My_Questionss
 from django.contrib import messages
+from main.saveToJsonGetQuestions import SaveToJsonGetQuestions
 
 class Bookmark(View):
     def get(self, request, *args, **kwargs): 
@@ -362,6 +363,9 @@ class Main(View):
     def get(self, request, *args, **kwargs):
         user_id = request.user.id
         if user_id:
+            #sort_json_qs = SaveToJsonGetQuestions(json_file = self.__all_votes_json, user_id = user_id)
+            #if sort_json_qs == True:
+            #    return render(request, 'index.html', {})
             check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
             get_q = self.__get_questions(user_id)
             if check_json != 0 or check_json == 0:

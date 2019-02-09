@@ -22,3 +22,7 @@ class UserRegistrationInfo:
     def setupRegistration(self):
         lozza_admin = User.objects.create_superuser(self.username, self.email, self.password1)
 
+    def setupRegisterNormalUsers(self):
+        lozza_admin = User.objects.create(self.username, self.email, self.password1)
+
+
