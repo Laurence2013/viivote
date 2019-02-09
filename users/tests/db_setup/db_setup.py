@@ -14,15 +14,16 @@ class UserLoginInfo:
         client.login(username = lozza_admin.username, password = my_pass)
 
 class UserRegistrationInfo:
-    def __init__(self, username, email, password1):
-        self.username = username
-        self.email = email
-        self.password1 = password1
+    def __init__(self, **kwargs):
+        self.username = kwargs.get('username')
+        self.email = kwargs.get('email')
+        self.password1 = kwargs.get('password')
 
     def setupRegistration(self):
         lozza_admin = User.objects.create_superuser(self.username, self.email, self.password1)
 
     def setupRegisterNormalUsers(self):
-        lozza_admin = User.objects.create(self.username, self.email, self.password1)
+        lozza_admin = User.objects.create_user(username = self.username, email = self.email, password = self.password1)
 
-
+    def getUserInfo(self):
+        return User.objects.values('id', 'username', 'email')
