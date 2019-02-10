@@ -3,6 +3,7 @@ from users.tests.db_setup.db_setup import UserLoginInfo
 from main.tests.db_setup.gettingQuestionsAndVotes import GettingQuestionsAndVotes
 from main.views import *
 from unittest.mock import patch, Mock
+from nose.tools import nottest
 
 class GettingNumberOfVotesForUserTests(TestCase):
     def setUp(self):
@@ -30,3 +31,12 @@ class GettingNumberOfVotesForUserTests(TestCase):
         c = self.question1.get_vote_c()
         self.assertEqual('lorem 00 vote c', c.get('vote'))
 
+    def test_04_get_votes_table_ids_equal_to_vote_a_b_c_tables(self):
+        a = self.question1.get_vote_a()
+        b = self.question1.get_vote_b()
+        c = self.question1.get_vote_c()
+        self.question1.votes_table()
+        get_votes = self.question1.get_votes_table()
+        self.assertEqual(a.get('id'), get_votes.get('vote_a_id'))
+        self.assertEqual(b.get('id'), get_votes.get('vote_b_id'))
+        self.assertEqual(c.get('id'), get_votes.get('vote_c_id'))

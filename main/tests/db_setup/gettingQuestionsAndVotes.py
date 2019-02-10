@@ -18,7 +18,14 @@ class GettingQuestionsAndVotes:
         pass
     
     def votes_table(self):
-        pass
+        a = Vote_A_table.objects.values('id', 'vote', 'total_votes', 'date_updated')[0]
+        b = Vote_B_table.objects.values('id', 'vote', 'total_votes', 'date_updated')[0]
+        c = Vote_C_table.objects.values('id', 'vote', 'total_votes', 'date_updated')[0]
+        Votes_table.objects.create(vote_a_id = a.get('id'), vote_b_id = b.get('id'), vote_c_id = c.get('id')).save()
+
+    def get_votes_table(self):
+        votes_tbl = Votes_table.objects.values('id', 'vote_a_id', 'vote_b_id', 'vote_c_id', 'date_updated')[0]
+        return votes_tbl
 
     def vote_a_table(self):
         Vote_A_table.objects.create(vote = self.__vote_a, total_votes = 0).save()
