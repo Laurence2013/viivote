@@ -40,3 +40,19 @@ class GettingNumberOfVotesForUserTests(TestCase):
         self.assertEqual(a.get('id'), get_votes.get('vote_a_id'))
         self.assertEqual(b.get('id'), get_votes.get('vote_b_id'))
         self.assertEqual(c.get('id'), get_votes.get('vote_c_id'))
+
+    def test_05_ask_questions_table_equal_to_questions_vote_table(self):
+        self.question1.votes_table()
+        votes_table_id = self.question1.get_votes_table()
+        get_qs  = self.question1.get_questions() 
+        votes   = self.question1.get_votes_table()
+        qs      = self.question1.get_questions()
+        self.question1.questions_votes_table(qs = qs.get('id'), votes_table = votes.get('id'))
+        is_saved = self.question1.get_questions_votes_table()
+
+        self.assertEqual(get_qs.get('id'), is_saved.get('question_id_id'))
+        self.assertEqual(votes_table_id.get('id'), is_saved.get('votes_id_id'))
+
+    def test_06_get_all_votes_from_abc_tables_according_to_user(self):
+        pass
+

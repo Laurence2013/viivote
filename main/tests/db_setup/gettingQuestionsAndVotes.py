@@ -14,8 +14,12 @@ class GettingQuestionsAndVotes:
         qs = Ask_A_Question_table.objects.values('id', 'question', 'date_updated')[0]
         return qs
 
-    def questions_votes_table(self):
-        pass
+    def questions_votes_table(self, **kwargs):
+        Questions_Votes_table.objects.create(question_id_id = kwargs.get('qs'), votes_id_id = kwargs.get('votes_table')).save()
+
+    def get_questions_votes_table(self):
+        qs_votes = Questions_Votes_table.objects.values('id', 'question_id_id', 'votes_id_id', 'date_updated')[0]
+        return qs_votes
     
     def votes_table(self):
         a = Vote_A_table.objects.values('id', 'vote', 'total_votes', 'date_updated')[0]

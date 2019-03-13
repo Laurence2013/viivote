@@ -2,6 +2,37 @@
     {
         "user_id": 2,
         "has_voted": true,
+        "question_id": 20,
+        "question": "When is investigation gonna end",
+        "date": "2019-02-10T19:42:29.853Z",
+        "vote_a": {
+            "id": "17_a",
+            "vote": "2 months",
+            "questions_vote_id": 20,
+            "user_id": 2
+        },
+        "vote_b": {
+            "id": "17_b",
+            "vote": "3 months",
+            "questions_vote_id": 20,
+            "user_id": 2
+        },
+        "vote_c": {
+            "id": "17_c",
+            "vote": "Never",
+            "questions_vote_id": 20,
+            "user_id": 2
+        },
+        "vote_type": "b",
+        "vote_a_id": null,
+        "vote_b_id": 17,
+        "vote_c_id": null,
+        "answers": [],
+        "asked_by": "lozza187"
+    },
+    {
+        "user_id": 2,
+        "has_voted": true,
         "question_id": 19,
         "question": "Is Amardeep and Alka shave their backs?",
         "date": "2019-02-09T15:21:19.020Z",
