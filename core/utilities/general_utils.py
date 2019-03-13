@@ -1,6 +1,9 @@
 from main.models import *
 
 class General_Utils:
+
+    def __init__(self, *args):
+        print(args)
     
     def get_questions(self, user_id):
         votes_list = []
