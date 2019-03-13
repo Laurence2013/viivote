@@ -367,6 +367,7 @@ class Main(View):
             #if sort_json_qs == True:
             #    return render(request, 'index.html', {})
             check_json = self.__base_dir + '/static/json/'+ self.__all_votes_json +'.json'
+            ''' Start from here '''
             get_q = self.__get_questions(user_id)
             if check_json != 0 or check_json == 0:
                 self.__get_json.save_json(get_q, self.__all_votes_json)
